@@ -11,21 +11,23 @@ header {
     padding: 20px;
 }
 
-.portfolio {
+main {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+}
+
+.portfolio-option {
+    background-color: #eee;
     padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.project {
-    margin: 10px;
-    overflow: hidden;
-}
-
-.project img {
-    width: 100%;
-    height: auto;
+.portfolio-option:hover {
+    background-color: #ddd;
 }
 
 footer {
