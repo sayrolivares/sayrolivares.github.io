@@ -1,0 +1,216 @@
+/* ============================================================
+   Global variables
+   These define the color system and can be reused everywhere.
+   We override them later for dark mode.
+   ============================================================ */
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --muted-text: #555555;
+    --accent-color: #2563eb;
+    --border-color: #e5e5e5;
+    --container-width: 720px;
+    --font-main: "NotoSansJP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ============================================================
+   Dark mode overrides
+   Automatically activates if user has dark mode enabled.
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0f0f0f;
+        --text-color: #e5e5e5;
+        --muted-text: #a3a3a3;
+        --accent-color: #60a5fa;
+        --border-color: #2a2a2a;
+    }
+}
+
+/* ============================================================
+   Base styles
+   Reset-ish behavior and general typography.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   Layout containers
+   ============================================================ */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ============================================================
+   Header section
+   ============================================================ */
+
+.site-header {
+    padding: 3rem 1.5rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.name {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.tagline {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--muted-text);
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.4rem;
+}
+
+/* ============================================================
+   Lists and items
+   ============================================================ */
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    margin-bottom: 1.2rem;
+}
+
+/* ============================================================
+   Links
+   ============================================================ */
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   Descriptions under project links
+   ============================================================ */
+
+.description {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.site-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted-text);
+}
+
+/* FONTS */
+/* ============================================================
+   Noto Sans JP font loading
+   These rules tell the browser where your font files live.
+   ============================================================ */
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
