@@ -1,7 +1,5 @@
 /* ============================================================
    Global variables
-   These define the color system and can be reused everywhere.
-   We override them later for dark mode.
    ============================================================ */
 
 :root {
@@ -16,7 +14,6 @@
 
 /* ============================================================
    Dark mode overrides
-   Automatically activates if user has dark mode enabled.
    ============================================================ */
 
 @media (prefers-color-scheme: dark) {
@@ -31,7 +28,6 @@
 
 /* ============================================================
    Base styles
-   Reset-ish behavior and general typography.
    ============================================================ */
 
 * {
@@ -48,7 +44,7 @@ body {
 }
 
 /* ============================================================
-   Layout containers
+   Layout container
    ============================================================ */
 
 .container {
@@ -58,7 +54,7 @@ body {
 }
 
 /* ============================================================
-   Header section
+   Header
    ============================================================ */
 
 .site-header {
@@ -93,10 +89,81 @@ body {
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.4rem;
+    text-align: center;
 }
 
 /* ============================================================
-   Lists and items
+   Experience section
+   ============================================================ */
+
+.experience-item {
+    margin-bottom: 1.5rem;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 600;
+}
+
+.role {
+    font-size: 1rem;
+}
+
+.company {
+    font-size: 0.95rem;
+    color: var(--muted-text);
+}
+
+.experience-meta {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    margin-top: 0.2rem;
+}
+
+.experience-description {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   Education section
+   ============================================================ */
+
+.education-item {
+    margin-bottom: 1.5rem;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 600;
+}
+
+.degree {
+    font-size: 1rem;
+}
+
+.institution {
+    font-size: 0.95rem;
+    color: var(--muted-text);
+}
+
+.education-meta {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    margin-top: 0.2rem;
+}
+
+.education-description {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   Lists (general)
    ============================================================ */
 
 .list {
@@ -106,7 +173,29 @@ body {
 }
 
 .list li {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   Projects descriptions
+   ============================================================ */
+
+.description {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+}
+
+/* ============================================================
+   Links section (2-column grid ONLY here)
+   ============================================================ */
+
+.section.links .list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 0.75rem 2rem;
+    justify-items: start;
 }
 
 /* ============================================================
@@ -124,17 +213,6 @@ a:hover {
 }
 
 /* ============================================================
-   Descriptions under project links
-   ============================================================ */
-
-.description {
-    display: block;
-    margin-top: 0.2rem;
-    font-size: 0.9rem;
-    color: var(--muted-text);
-}
-
-/* ============================================================
    Footer
    ============================================================ */
 
@@ -146,10 +224,8 @@ a:hover {
     color: var(--muted-text);
 }
 
-/* FONTS */
 /* ============================================================
-   Noto Sans JP font loading
-   These rules tell the browser where your font files live.
+   Fonts – Noto Sans JP
    ============================================================ */
 
 @font-face {
