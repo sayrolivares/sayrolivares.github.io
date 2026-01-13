@@ -1,34 +1,28 @@
-/* ============================================================
-   Global variables
-   ============================================================ */
-
 :root {
-    --bg-color: #ffffff;
-    --text-color: #111111;
-    --muted-text: #555555;
-    --accent-color: #2563eb;
-    --border-color: #e5e5e5;
-    --container-width: 720px;
-    --font-main: "NotoSansJP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
+    --bg: #ffffff;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --border: #e5e7eb;
 
-/* ============================================================
-   Dark mode overrides
-   ============================================================ */
+    --radius: 14px;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+
+    --font: "NotoSansJP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #0f0f0f;
-        --text-color: #e5e5e5;
-        --muted-text: #a3a3a3;
-        --accent-color: #60a5fa;
-        --border-color: #2a2a2a;
+        --bg: #0a0a0a;
+        --card: #121212;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --border: #1f2933;
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
 }
-
-/* ============================================================
-   Base styles
-   ============================================================ */
 
 * {
     box-sizing: border-box;
@@ -36,257 +30,148 @@
 
 body {
     margin: 0;
-    padding: 0;
-    font-family: var(--font-main);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    min-height: 100vh;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ============================================================
-   Layout container
-   ============================================================ */
-
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
+.page-wrapper {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
-/* ============================================================
-   Header
-   ============================================================ */
+.profile-card {
+    width: 100%;
+    max-width: 720px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
 
-.site-header {
-    padding: 3rem 1.5rem 2rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    text-align: center;
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .name {
     margin: 0;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: -0.02em;
 }
 
-.tagline {
-    margin-top: 0.75rem;
-    font-size: 1rem;
-    color: var(--muted-text);
-}
-
-/* ============================================================
-   Sections
-   ============================================================ */
-
-.section {
-    margin-bottom: 3rem;
-}
-
-.section h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.4rem;
-    text-align: center;
-}
-
-/* ============================================================
-   Experience section
-   ============================================================ */
-
-.experience-item {
-    margin-bottom: 1.5rem;
-}
-
-.experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-weight: 600;
-}
-
-.role {
-    font-size: 1rem;
-}
-
-.company {
-    font-size: 0.95rem;
-    color: var(--muted-text);
-}
-
-.experience-meta {
-    font-size: 0.85rem;
-    color: var(--muted-text);
-    margin-top: 0.2rem;
-}
-
-.experience-description {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-}
-
-/* ============================================================
-   Education section
-   ============================================================ */
-
-.education-item {
-    margin-bottom: 1.5rem;
-}
-
-.education-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-weight: 600;
-}
-
-.degree {
-    font-size: 1rem;
-}
-
-.institution {
-    font-size: 0.95rem;
-    color: var(--muted-text);
-}
-
-.education-meta {
-    font-size: 0.85rem;
-    color: var(--muted-text);
-    margin-top: 0.2rem;
-}
-
-.education-description {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-}
-
-/* ============================================================
-   Lists (general)
-   ============================================================ */
-
-.list {
-    list-style: none;
-    padding: 0;
+.headline {
     margin: 0;
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 90%;
 }
 
-.list li {
-    margin-bottom: 1.5rem;
-}
-
-/* ============================================================
-   Projects descriptions
-   ============================================================ */
-
-.description {
-    display: block;
-    margin-top: 0.2rem;
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
     font-size: 0.9rem;
-    color: var(--muted-text);
+    color: var(--muted);
 }
 
-/* ============================================================
-   Links section (2-column grid ONLY here)
-   ============================================================ */
-
-.section.links .list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
-    gap: 0.75rem 2rem;
-    justify-items: start;
+.dot {
+    opacity: 0.5;
 }
 
-/* ============================================================
-   Links
-   ============================================================ */
-
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
+.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.25rem 0 1.5rem 0;
+    width: 100%;
+    opacity: 0.9;
 }
 
-a:hover {
-    text-decoration: underline;
+.connect {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-/* ============================================================
-   Footer
-   ============================================================ */
-
-.site-footer {
-    border-top: 1px solid var(--border-color);
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--muted-text);
-}
-
-/* ============================================================
-   Fonts – Noto Sans JP
-   ============================================================ */
-
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Thin.ttf") format("truetype");
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-ExtraLight.ttf") format("truetype");
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-SemiBold.ttf") format("truetype");
+.connect h2 {
+    margin: 0;
+    font-size: 1.1rem;
     font-weight: 600;
-    font-style: normal;
 }
 
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
+.connect-text {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--muted);
 }
 
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-ExtraBold.ttf") format("truetype");
-    font-weight: 800;
-    font-style: normal;
+.connect-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
 }
 
-@font-face {
-    font-family: "NotoSansJP";
-    src: url("../assets/font/Noto_Sans_JP/static/NotoSansJP-Black.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
+.connect-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+}
+
+.connect-item:hover {
+    opacity: 0.7;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+}
+
+.icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 2rem 1.75rem;
+    }
+
+    .name {
+        font-size: 1.6rem;
+    }
+
+    .headline {
+        max-width: 100%;
+    }
 }
