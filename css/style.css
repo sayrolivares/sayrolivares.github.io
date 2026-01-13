@@ -9,7 +9,7 @@
     --radius: 14px;
     --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 
-    --font: "NotoSansJP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font: "Source Serif 4", serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,9 +79,10 @@ body {
 
 .name {
     margin: 0;
-    font-size: 1.8rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-size: 1.9rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-family: "Fasthand", cursive;
 }
 
 .headline {
@@ -89,6 +90,7 @@ body {
     font-size: 1rem;
     color: var(--muted);
     max-width: 90%;
+    line-height: 1.5;
 }
 
 .meta {
@@ -168,7 +170,7 @@ body {
     }
 
     .name {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
 
     .headline {
