@@ -1,26 +1,31 @@
 :root {
-    --bg: #ffffff;
+    --bg: #f4f7fb;
+    --bg-glow: #e9eef8;
     --card: #ffffff;
+    --surface: #f7f9fc;
     --text: #0f172a;
     --muted: #64748b;
-    --accent: #2563eb;
+    --accent: #1d4ed8;
     --border: #e5e7eb;
 
-    --radius: 14px;
-    --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --radius: 16px;
+    --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 
-    --font: "Source Serif 4", serif;
+    --font-body: "Source Serif 4", serif;
+    --font-title: "Fasthand", cursive;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #0a0a0a;
-        --card: #121212;
+        --bg: #080c13;
+        --bg-glow: #111826;
+        --card: #0f1724;
+        --surface: #121d2d;
         --text: #e5e7eb;
         --muted: #9ca3af;
         --accent: #60a5fa;
-        --border: #1f2933;
-        --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        --border: #1f2937;
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -31,8 +36,10 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: var(--font);
-    background: var(--bg);
+    font-family: var(--font-body);
+    background:
+        radial-gradient(1200px 500px at 15% -10%, var(--bg-glow), transparent 65%),
+        var(--bg);
     color: var(--text);
     display: flex;
     align-items: center;
@@ -41,28 +48,38 @@ body {
 
 .page-wrapper {
     width: 100%;
-    padding: 2rem;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
     display: flex;
     justify-content: center;
 }
 
 .profile-card {
     width: 100%;
-    max-width: 720px;
+    max-width: 780px;
     background: var(--card);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 2.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 1.5rem;
+    animation: card-enter 450ms ease both;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .avatar {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
 }
 
 .avatar img {
@@ -77,32 +94,129 @@ body {
     gap: 0.5rem;
 }
 
+.eyebrow {
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 .name {
     margin: 0;
-    font-size: 1.9rem;
+    font-size: clamp(1.9rem, 4.5vw, 2.4rem);
     font-weight: 400;
     letter-spacing: -0.01em;
-    font-family: "Fasthand", cursive;
+    font-family: var(--font-title);
+    line-height: 1.02;
 }
 
 .headline {
     margin: 0;
     font-size: 1rem;
     color: var(--muted);
-    max-width: 90%;
-    line-height: 1.5;
+    max-width: 70ch;
+    line-height: 1.6;
 }
 
 .meta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem 0.8rem;
     font-size: 0.9rem;
     color: var(--muted);
 }
 
-.dot {
-    opacity: 0.5;
+.meta li + li {
+    position: relative;
+    padding-left: 0.95rem;
+}
+
+.meta li + li::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0.35rem;
+    background: currentColor;
+    opacity: 0.35;
+    transform: translateY(-50%);
+}
+
+.focus {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.focus h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.section-text {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.topic-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.topic-chip {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+}
+
+.topic-chip:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.topic-chip:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.topic-chip.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+}
+
+.topic-panel {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    min-height: 86px;
+}
+
+.topic-panel p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--muted);
+    transition: opacity 0.14s ease;
+}
+
+.topic-panel p.is-fading {
+    opacity: 0.35;
 }
 
 .divider {
@@ -132,10 +246,16 @@ body {
 }
 
 .connect-links {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
+    gap: 0.8rem 1.2rem;
+}
+
+.connect-links li {
+    margin: 0;
 }
 
 .connect-item {
@@ -145,11 +265,14 @@ body {
     font-weight: 500;
     color: var(--text);
     text-decoration: none;
-    transition: opacity 0.15s ease;
+    border-radius: 10px;
+    padding: 0.25rem 0.35rem;
+    transition: opacity 0.15s ease, background-color 0.18s ease;
 }
 
 .connect-item:hover {
-    opacity: 0.7;
+    opacity: 0.9;
+    background: var(--surface);
 }
 
 .icon {
@@ -164,16 +287,42 @@ body {
     display: block;
 }
 
+@media (max-width: 640px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 @media (max-width: 480px) {
     .profile-card {
         padding: 2rem 1.75rem;
     }
 
-    .name {
-        font-size: 1.7rem;
+    .meta li + li {
+        padding-left: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile-card {
+        animation: none;
     }
 
-    .headline {
-        max-width: 100%;
+    .topic-chip,
+    .topic-panel p,
+    .connect-item {
+        transition: none;
+    }
+}
+
+@keyframes card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
