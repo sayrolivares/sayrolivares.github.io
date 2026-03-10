@@ -2,73 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sayr Olivares – Data, Health-Tech & Research</title>
-    <meta name="description" content="Sayr Olivares – Technology Lead and Computer Science student focused on data science, research, and technical writing.">
+    <title>Sayr Olivares – SEO, Automation & Data Science</title>
+    <meta name="description" content="Sayr Olivares – Tech professional available for SEO and automation projects, transitioning into data science and AI.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph / Facebook / WhatsApp / Instagram -->
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sayrolivares.github.io/">
-    <meta property="og:title" content="Sayr Olivares – Data, Health-Tech & Research">
-    <meta property="og:description" content="Sayr Olivares – Technology Lead and Computer Science student focused on data science, research, and technical writing.">
+    <meta property="og:title" content="Sayr Olivares – SEO, Automation & Data Science">
+    <meta property="og:description" content="Tech professional available for SEO and automation projects, transitioning into data science and AI.">
     <meta property="og:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
 
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sayrolivares.github.io/">
-    <meta name="twitter:title" content="Sayr Olivares – Data, Health-Tech & Research">
-    <meta name="twitter:description" content="Sayr Olivares – Technology Lead and Computer Science student focused on data science, research, and technical writing.">
+    <meta name="twitter:title" content="Sayr Olivares – SEO, Automation & Data Science">
+    <meta name="twitter:description" content="Tech professional available for SEO and automation projects, transitioning into data science and AI.">
     <meta name="twitter:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="assets/icons/favicon4.png">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+
+    <style>
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .section-label .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .dot-green { background: #22c55e; box-shadow: 0 0 6px #22c55e88; }
+        .dot-blue  { background: var(--accent); box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 60%, transparent); }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            .focus-grid { grid-template-columns: 1fr; }
+        }
+
+        .focus-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.1rem 1.1rem 1rem;
+            background: var(--surface);
+        }
+
+        .focus-block h3 {
+            margin: 0;
+            font-size: 0.97rem;
+            font-weight: 600;
+        }
+
+        .focus-block .sub {
+            margin: 0;
+            font-size: 0.84rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .focus-block .topic-panel {
+            background: var(--card);
+            min-height: 78px;
+        }
+
+        .focus-block.is-building .topic-chip.is-active {
+            background: color-mix(in srgb, var(--accent) 75%, #7c3aed 25%);
+            border-color: color-mix(in srgb, var(--accent) 75%, #7c3aed 25%);
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #16a34a;
+            background: #dcfce7;
+            border: 1px solid #bbf7d0;
+            border-radius: 999px;
+            padding: 0.22rem 0.6rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .availability-badge {
+                color: #4ade80;
+                background: #052e16;
+                border-color: #166534;
+            }
+        }
+
+        .availability-badge .pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1);   }
+            50%       { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        .focus-section-title {
+            margin: 0 0 0.9rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 <main class="page-wrapper">
     <article class="profile-card" aria-labelledby="profile-name">
+
         <header class="profile-header">
             <div class="avatar">
                 <img src="assets/images/picture.jpg" alt="Portrait of Sayr Olivares">
             </div>
-
             <div class="intro">
-                <p class="eyebrow">Technology Lead - Computer Science Student</p>
+                <p class="eyebrow">Technology Lead · CS Student · Available for work</p>
                 <h1 class="name" id="profile-name">Hi, I'm Sayr Olivares</h1>
                 <p class="headline">
-                    I am a Tech Lead and Computer Science student focused on data science, research, and technical writing.
+                    I help businesses grow through SEO and automation today, while building toward a career in data science and AI.
                 </p>
             </div>
         </header>
 
         <ul class="meta" aria-label="Profile highlights">
             <li>Bogotá, Colombia</li>
-            <li>1 year of experience</li>
-            <li>Data and Research</li>
-            <li>Fully remote</li>
+            <li>3+ years experience</li>
+            <li>Remote-first</li>
+            <li>
+                <span class="availability-badge">
+                    <span class="pulse" aria-hidden="true"></span>
+                    Open to freelance
+                </span>
+            </li>
         </ul>
 
-        <section class="focus" aria-labelledby="focus-title">
-            <h2 id="focus-title">Current focus</h2>
-            <p class="section-text">
-                I enjoy collaborating on practical technical work. If you are building something in data or health-tech, these are good starting points for a conversation.
-            </p>
+        <section aria-labelledby="focus-title">
+            <h2 id="focus-title" class="focus-section-title">What I work on</h2>
+            <div class="focus-grid">
 
-            <div class="topic-switcher" role="group" aria-label="Conversation starters">
-                <button type="button" class="topic-chip is-active" aria-pressed="true" data-topic="data">Data science</button>
-                <button type="button" class="topic-chip" aria-pressed="false" data-topic="research">Research</button>
-                <button type="button" class="topic-chip" aria-pressed="false" data-topic="writing">Technical writing</button>
-                <button type="button" class="topic-chip" aria-pressed="false" data-topic="books">Reading</button>
-            </div>
+                <!-- Block 1: hire me now -->
+                <div class="focus-block">
+                    <div class="section-label">
+                        <span class="dot dot-green" aria-hidden="true"></span>
+                        Available now
+                    </div>
+                    <h3>SEO &amp; Automation</h3>
+                    <p class="sub">What you can hire me for today. Click a topic.</p>
+                    <div class="topic-switcher" role="group" aria-label="Current skills">
+                        <button type="button" class="topic-chip is-active" aria-pressed="true"  data-topic="seo">SEO strategy</button>
+                        <button type="button" class="topic-chip" aria-pressed="false" data-topic="content">Content</button>
+                        <button type="button" class="topic-chip" aria-pressed="false" data-topic="automation">Automation</button>
+                        <button type="button" class="topic-chip" aria-pressed="false" data-topic="ops">Tech ops</button>
+                    </div>
+                    <div class="topic-panel">
+                        <p data-topic-content="now">
+                            I build and execute SEO strategies that connect content to real business outcomes — keyword research, on-page optimisation, and tracking what actually moves the needle.
+                        </p>
+                    </div>
+                </div>
 
-            <div class="topic-panel">
-                <p data-topic-content>
-                    I am currently building practical data projects in health-tech contexts and improving experiment design workflows.
-                </p>
+                <!-- Block 2: building toward -->
+                <div class="focus-block is-building">
+                    <div class="section-label">
+                        <span class="dot dot-blue" aria-hidden="true"></span>
+                        Building toward
+                    </div>
+                    <h3>Data Science &amp; AI</h3>
+                    <p class="sub">My long-term direction. Active learner.</p>
+                    <div class="topic-switcher" role="group" aria-label="Learning areas">
+                        <button type="button" class="topic-chip is-active" aria-pressed="true"  data-topic="ds">Data science</button>
+                        <button type="button" class="topic-chip" aria-pressed="false" data-topic="ml">ML &amp; AI</button>
+                        <button type="button" class="topic-chip" aria-pressed="false" data-topic="cloud">Cloud</button>
+                        <button type="button" class="topic-chip" aria-pressed="false" data-topic="cs">CS degree</button>
+                    </div>
+                    <div class="topic-panel">
+                        <p data-topic-content="building">
+                            I have completed data projects with Python and Pandas — sales analysis, correlation studies, and visualisations. This is the domain I am investing in most right now.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -76,55 +213,47 @@
 
         <section class="connect" aria-labelledby="connect-title">
             <h2 id="connect-title">Let's connect</h2>
-            <p class="connect-text">Got something in mind? Reach out on LinkedIn or Twitter (preferred).</p>
-
+            <p class="connect-text">Open to freelance projects, collaborations, or just a good conversation about data and tech.</p>
             <ul class="connect-links">
                 <li>
                     <a href="https://github.com/sayrolivares" target="_blank" rel="noopener" class="connect-item">
-                        <span class="icon">
-                            <picture>
-                                <source srcset="assets/icons/icons8-github-light.svg" media="(prefers-color-scheme: dark)">
-                                <img src="assets/icons/icons8-github.svg" alt="GitHub icon">
-                            </picture>
-                        </span>
+                        <span class="icon"><picture>
+                            <source srcset="assets/icons/icons8-github-light.svg" media="(prefers-color-scheme: dark)">
+                            <img src="assets/icons/icons8-github.svg" alt="GitHub icon">
+                        </picture></span>
                         <span>GitHub</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/in/sayrolivares" target="_blank" rel="noopener" class="connect-item">
-                        <span class="icon">
-                            <picture>
-                                <source srcset="assets/icons/icons8-linkedin-light.svg" media="(prefers-color-scheme: dark)">
-                                <img src="assets/icons/icons8-linkedin.svg" alt="LinkedIn icon">
-                            </picture>
-                        </span>
+                        <span class="icon"><picture>
+                            <source srcset="assets/icons/icons8-linkedin-light.svg" media="(prefers-color-scheme: dark)">
+                            <img src="assets/icons/icons8-linkedin.svg" alt="LinkedIn icon">
+                        </picture></span>
                         <span>LinkedIn</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://x.com/sayrolivares" target="_blank" rel="noopener" class="connect-item">
-                        <span class="icon">
-                            <picture>
-                                <source srcset="assets/icons/icons8-twitter-light.svg" media="(prefers-color-scheme: dark)">
-                                <img src="assets/icons/icons8-twitter-bird.svg" alt="Twitter icon">
-                            </picture>
-                        </span>
+                        <span class="icon"><picture>
+                            <source srcset="assets/icons/icons8-twitter-light.svg" media="(prefers-color-scheme: dark)">
+                            <img src="assets/icons/icons8-twitter-bird.svg" alt="Twitter icon">
+                        </picture></span>
                         <span>Twitter</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.goodreads.com/user/show/124600732-sayr-olivares" target="_blank" rel="noopener" class="connect-item">
-                        <span class="icon">
-                            <picture>
-                                <source srcset="assets/icons/icons8-goodreads-light.svg" media="(prefers-color-scheme: dark)">
-                                <img src="assets/icons/icons8-goodreads.svg" alt="Goodreads icon">
-                            </picture>
-                        </span>
+                        <span class="icon"><picture>
+                            <source srcset="assets/icons/icons8-goodreads-light.svg" media="(prefers-color-scheme: dark)">
+                            <img src="assets/icons/icons8-goodreads.svg" alt="Goodreads icon">
+                        </picture></span>
                         <span>Goodreads</span>
                     </a>
                 </li>
             </ul>
         </section>
+
     </article>
 </main>
 <script src="js/main.js" defer></script>
