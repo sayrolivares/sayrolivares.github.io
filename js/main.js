@@ -110,4 +110,22 @@ function renderPostLists() {
     });
 }
 
+async function injectSharedFooter() {
+    const footerMounts = document.querySelectorAll("[data-site-footer]");
+    if (!footerMounts.length) return;
+
+    await Promise.all(Array.from(footerMounts, async (mount) => {
+        const footerPath = mount.dataset.footerPath || "footer.html";
+
+        try {
+            const response = await fetch(footerPath);
+            if (!response.ok) throw new Error(`Footer request failed: ${response.status}`);
+            mount.innerHTML = await response.text();
+        } catch (error) {
+            console.error("Unable to load shared footer", error);
+        }
+    }));
+}
+
 renderPostLists();
+injectSharedFooter();
