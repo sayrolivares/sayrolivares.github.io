@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cleaning Noisy Ecommerce Data with Pandas in 6 Reusable Steps | Sayr Olivares</title>
+    <meta name="description" content="A reusable six-step process in Pandas to clean ecommerce datasets and prepare reliable tables for analysis and reporting.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://sayrolivares.github.io/posts/coding/pandas-ecommerce-cleaning-steps.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sayrolivares.github.io/posts/coding/pandas-ecommerce-cleaning-steps.html">
+    <meta property="og:title" content="Cleaning Noisy Ecommerce Data with Pandas in 6 Reusable Steps">
+    <meta property="og:description" content="A reusable six-step process in Pandas to clean ecommerce datasets for analysis and reporting.">
+    <meta property="og:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
+    <meta property="article:published_time" content="2026-03-03">
+    <meta property="article:modified_time" content="2026-03-03">
+    <meta property="article:section" content="Coding Blog">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Pandas">
+    <meta property="article:tag" content="Data Analysis">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cleaning Noisy Ecommerce Data with Pandas in 6 Reusable Steps">
+    <meta name="twitter:description" content="A reusable six-step process in Pandas to clean ecommerce datasets for analysis and reporting.">
+    <meta name="twitter:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" type="image/png" href="../../assets/icons/favicon4.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Cleaning Noisy Ecommerce Data with Pandas in 6 Reusable Steps",
+            "description": "A reusable six-step process in Pandas to clean ecommerce datasets and prepare reliable tables for analysis and reporting.",
+            "datePublished": "2026-03-03",
+            "dateModified": "2026-03-03",
+            "url": "https://sayrolivares.github.io/posts/coding/pandas-ecommerce-cleaning-steps.html",
+            "author": {
+                "@type": "Person",
+                "name": "Sayr Olivares",
+                "url": "https://sayrolivares.github.io/author/sayr-olivares.html"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Sayr Olivares"
+            },
+            "image": "https://sayrolivares.github.io/assets/images/picture.jpg",
+            "articleSection": "Coding Blog",
+            "keywords": ["Python", "Pandas", "Data Analysis"]
+        }
+    </script>
+</head>
+<body>
+<main class="site-shell article-shell">
+    <header class="topbar">
+        <p class="brand"><a href="../../index.html">Sayr Olivares</a></p>
+        <nav aria-label="Post navigation">
+            <a href="../../index.html#writing">Writing</a>
+            <a href="../../index.html#coding">Coding</a>
+            <a href="../../index.html#projects">Projects</a>
+            <a href="../../author/sayr-olivares.html">Author</a>
+        </nav>
+    </header>
+
+    <article class="post-article">
+        <header class="post-header">
+            <p class="label">Coding Blog · Python</p>
+            <h1>Cleaning noisy ecommerce data with Pandas in 6 reusable steps</h1>
+            <p class="post-byline">
+                By <a href="../../author/sayr-olivares.html" rel="author">Sayr Olivares</a> ·
+                <time datetime="2026-03-03">March 3, 2026</time> · 8 min read
+            </p>
+            <ul class="tag-list" aria-label="Post tags">
+                <li><a class="tag-pill" href="../../index.html#coding">Coding</a></li>
+                <li><a class="tag-pill" href="../../index.html#coding">Python</a></li>
+                <li><a class="tag-pill" href="../../index.html#projects">Data Analysis</a></li>
+            </ul>
+        </header>
+
+        <div class="post-content">
+            <p>Ecommerce exports usually arrive messy: mixed date formats, duplicated orders, inconsistent product names, and null values in key fields. I use a six-step cleaning sequence so I can reuse the same workflow in every project.</p>
+            <p>Step one is schema sanity check. I rename columns, enforce consistent naming, and validate expected types. Step two is null management, where I classify nulls into acceptable, imputable, or blocking fields.</p>
+
+            <h2>Standardize first, aggregate later</h2>
+            <p>Step three is value normalization. Product names, country labels, and payment statuses get mapped into controlled vocabularies. Step four is deduplication using transaction keys and timestamp rules so late updates do not create double counting.</p>
+            <p>Step five is outlier inspection. I isolate improbable values and compare them against source logs before deciding whether to clip, correct, or flag. Only then do I move to step six: creating final analytic tables for revenue, retention, and conversion metrics.</p>
+
+            <h2>Document assumptions with the dataset</h2>
+            <p>I keep a short data quality note next to each output table: what was dropped, transformed, or inferred. This makes downstream dashboards easier to trust and easier to debug later.</p>
+            <p>A repeatable cleaning sequence saves more time than any single Pandas trick. Reliability is mostly process discipline.</p>
+        </div>
+
+        <section class="related-posts" aria-labelledby="related-title">
+            <h2 id="related-title">Related posts</h2>
+            <div class="related-grid">
+                <article class="related-card">
+                    <p>Coding · Automation</p>
+                    <a href="zapier-ops-workflow-95-percent.html">The exact workflow I used to cut repetitive operations by 95%</a>
+                </article>
+                <article class="related-card">
+                    <p>Coding · Cloud</p>
+                    <a href="aws-infrastructure-decisions.html">From manual setup to documented infrastructure decisions</a>
+                </article>
+            </div>
+        </section>
+    </article>
+</main>
+</body>
+</html>

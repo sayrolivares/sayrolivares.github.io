@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>Sayr Olivares - Writing and Coding Blog</title>
+        <link>https://sayrolivares.github.io/</link>
+        <description>Portfolio posts on SEO, automation, coding, and data science.</description>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
+
+        <item>
+            <title>How I design SEO systems that stay useful after algorithm changes</title>
+            <link>https://sayrolivares.github.io/posts/writing/seo-systems-durable.html</link>
+            <guid>https://sayrolivares.github.io/posts/writing/seo-systems-durable.html</guid>
+            <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+            <description>Framework for durable SEO systems that survive algorithm changes.</description>
+        </item>
+
+        <item>
+            <title>Cleaning noisy ecommerce data with Pandas in 6 reusable steps</title>
+            <link>https://sayrolivares.github.io/posts/coding/pandas-ecommerce-cleaning-steps.html</link>
+            <guid>https://sayrolivares.github.io/posts/coding/pandas-ecommerce-cleaning-steps.html</guid>
+            <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
+            <description>Reusable process for cleaning ecommerce datasets with Pandas.</description>
+        </item>
+
+        <item>
+            <title>What studying computer science changed in how I lead projects</title>
+            <link>https://sayrolivares.github.io/posts/writing/cs-study-changed-my-leadership.html</link>
+            <guid>https://sayrolivares.github.io/posts/writing/cs-study-changed-my-leadership.html</guid>
+            <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+            <description>How formal CS study improved leadership decisions and planning quality.</description>
+        </item>
+
+        <item>
+            <title>The exact workflow I used to cut repetitive operations by 95%</title>
+            <link>https://sayrolivares.github.io/posts/coding/zapier-ops-workflow-95-percent.html</link>
+            <guid>https://sayrolivares.github.io/posts/coding/zapier-ops-workflow-95-percent.html</guid>
+            <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+            <description>Automation design pattern using Zapier for operational efficiency.</description>
+        </item>
+
+        <item>
+            <title>My current framework for learning AI without getting distracted</title>
+            <link>https://sayrolivares.github.io/posts/writing/ai-learning-framework.html</link>
+            <guid>https://sayrolivares.github.io/posts/writing/ai-learning-framework.html</guid>
+            <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
+            <description>A practical AI learning framework centered on outputs and focus.</description>
+        </item>
+
+        <item>
+            <title>From manual setup to documented infrastructure decisions</title>
+            <link>https://sayrolivares.github.io/posts/coding/aws-infrastructure-decisions.html</link>
+            <guid>https://sayrolivares.github.io/posts/coding/aws-infrastructure-decisions.html</guid>
+            <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
+            <description>How lightweight infrastructure decisions improve cloud operations.</description>
+        </item>
+    </channel>
+</rss>

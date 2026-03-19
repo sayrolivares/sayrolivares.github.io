@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sayrolivares.github.io/sitemap.xml
