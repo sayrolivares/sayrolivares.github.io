@@ -314,14 +314,14 @@ h1 {
 .btn-primary {
     color: #2d1f10;
     background: var(--accent);
-    box-shadow: 0 12px 22px rgba(238, 170, 97, 0.35);
+    box-shadow: 0 8px 16px rgba(238, 170, 97, 0.2);
 }
 
 /* Secondary action still reads as important, but sits one step back. */
 .btn-secondary {
     color: var(--ink);
     background: var(--teal);
-    box-shadow: 0 12px 22px rgba(33, 99, 108, 0.4);
+    box-shadow: 0 8px 16px rgba(33, 99, 108, 0.22);
 }
 
 /* ==========================================================================
