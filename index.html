@@ -63,9 +63,9 @@
 
                 <!-- Category shortcuts inside the posts dropdown -->
                 <div class="dropdown-menu">
-                    <a href="#writing">Writing</a>
-                    <a href="#coding">Coding</a>
-                    <a href="#business">Business</a>
+                    <a href="writing.html">Writing</a>
+                    <a href="coding.html">Coding</a>
+                    <a href="business.html">Business</a>
                 </div>
             </details>
             <a href="#projects">Projects</a>
@@ -83,8 +83,8 @@
                 Here you can follow what I am learning, what I am building, how I think about automation, general stuff and data science.
             </p>
             <div class="hero-actions">
-                <a class="btn btn-primary" href="#writing">Read my writing</a>
-                <a class="btn btn-secondary" href="#coding">Browse code posts</a>
+                <a class="btn btn-primary" href="writing.html">Read my writing</a>
+                <a class="btn btn-secondary" href="coding.html">Browse code posts</a>
             </div>
         </div>
 
@@ -107,116 +107,41 @@
         </aside>
     </section>
 
-    <!-- Introductory section for post categories -->
+    <!-- Homepage section showing the latest three published posts -->
     <section class="content-section" id="posts" aria-labelledby="posts-title">
         <div class="section-head">
-            <p class="label">Posts</p>
-            <h2 id="posts-title">Categories</h2>
-            <p class="hero-copy">Writing for ideas, coding for implementation, and business for operations, strategy, and growth.</p>
+            <p class="label">Latest Posts</p>
+            <h2 id="posts-title">Most recent publishing</h2>
+            <p class="hero-copy">This list is rendered from the shared post index and always shows the latest three posts by publish date.</p>
         </div>
+        <div class="card-grid" data-post-list="latest" data-limit="3"></div>
     </section>
 
-    <!-- Writing category section -->
-    <section class="content-section" id="writing" aria-labelledby="writing-title">
+    <!-- Category directory linking to the three dedicated archive pages -->
+    <section class="content-section" id="categories" aria-labelledby="categories-title">
         <div class="section-head">
-            <p class="label">Writing</p>
-            <h2 id="writing-title">Essays and field notes</h2>
+            <p class="label">Categories</p>
+            <h2 id="categories-title">Browse by category</h2>
+            <p class="hero-copy">Each category page contains every post in that stream and updates from the same shared post index.</p>
         </div>
-
-        <!-- Writing article cards -->
         <div class="card-grid">
-            <!-- Writing post card: SEO systems -->
             <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-03-10">March 10, 2026</time> · SEO</p>
-                <h3><a class="entry-title-link" href="posts/writing/seo-systems-durable.html">How I design SEO systems that stay useful after algorithm changes</a></h3>
-                <p>Notes on building durable search workflows and avoiding overfitting to trends.</p>
-                <a class="entry-link" href="posts/writing/seo-systems-durable.html">Read article</a>
+                <p class="entry-meta">Category · Writing</p>
+                <h3><a class="entry-title-link" href="writing.html">Writing</a></h3>
+                <p>Essays, notes, and reflections on learning, technology, and long-term thinking.</p>
+                <a class="entry-link" href="writing.html">View all writing</a>
             </article>
-
-            <!-- Writing post card: CS and leadership -->
             <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-02-18">February 18, 2026</time> · Career</p>
-                <h3><a class="entry-title-link" href="posts/writing/cs-study-changed-my-leadership.html">What studying computer science changed in how I lead projects</a></h3>
-                <p>A reflection on combining operations leadership with stronger technical depth.</p>
-                <a class="entry-link" href="posts/writing/cs-study-changed-my-leadership.html">Read article</a>
+                <p class="entry-meta">Category · Coding</p>
+                <h3><a class="entry-title-link" href="coding.html">Coding Blog</a></h3>
+                <p>Technical walkthroughs, build logs, automation notes, and implementation details.</p>
+                <a class="entry-link" href="coding.html">View all coding posts</a>
             </article>
-
-            <!-- Writing post card: AI learning -->
             <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-01-22">January 22, 2026</time> · AI</p>
-                <h3><a class="entry-title-link" href="posts/writing/ai-learning-framework.html">My current framework for learning AI without getting distracted</a></h3>
-                <p>The roadmap I use to stay consistent and focused on practical outcomes.</p>
-                <a class="entry-link" href="posts/writing/ai-learning-framework.html">Read article</a>
-            </article>
-        </div>
-    </section>
-
-    <!-- Coding category section -->
-    <section class="content-section" id="coding" aria-labelledby="coding-title">
-        <div class="section-head">
-            <p class="label">Coding Blog</p>
-            <h2 id="coding-title">Build logs and technical walkthroughs</h2>
-        </div>
-
-        <!-- Coding article cards -->
-        <div class="card-grid">
-            <!-- Coding post card: Pandas data cleaning -->
-            <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-03-03">March 3, 2026</time> · Python</p>
-                <h3><a class="entry-title-link" href="posts/coding/pandas-ecommerce-cleaning-steps.html">Cleaning noisy ecommerce data with Pandas in 6 reusable steps</a></h3>
-                <p>From raw CSVs to reliable analysis-ready tables with validation checkpoints.</p>
-                <a class="entry-link" href="posts/coding/pandas-ecommerce-cleaning-steps.html">Read article</a>
-            </article>
-
-            <!-- Coding post card: automation workflow -->
-            <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-02-08">February 8, 2026</time> · Automation</p>
-                <h3><a class="entry-title-link" href="posts/coding/zapier-ops-workflow-95-percent.html">The exact workflow I used to cut repetitive operations by 95%</a></h3>
-                <p>A practical breakdown of trigger logic, retries, and handoff design.</p>
-                <a class="entry-link" href="posts/coding/zapier-ops-workflow-95-percent.html">Read article</a>
-            </article>
-
-            <!-- Coding post card: cloud decision records -->
-            <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-01-12">January 12, 2026</time> · Cloud</p>
-                <h3><a class="entry-title-link" href="posts/coding/aws-infrastructure-decisions.html">From manual setup to documented infrastructure decisions</a></h3>
-                <p>How I structure lightweight architecture docs before making platform changes.</p>
-                <a class="entry-link" href="posts/coding/aws-infrastructure-decisions.html">Read article</a>
-            </article>
-        </div>
-    </section>
-
-    <!-- Business category section -->
-    <section class="content-section" id="business" aria-labelledby="business-title">
-        <div class="section-head">
-            <p class="label">Business</p>
-            <h2 id="business-title">Strategy, operations, and growth</h2>
-        </div>
-
-        <!-- Business article cards -->
-        <div class="card-grid">
-            <!-- Business post card: operational scale decisions -->
-            <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-03-14">March 14, 2026</time> · Operations</p>
-                <h3><a class="entry-title-link" href="posts/business/process-decisions-scale-operations.html">The process decisions that actually help a small team scale operations</a></h3>
-                <p>What to standardize early, what to leave flexible, and how to avoid process theatre.</p>
-                <a class="entry-link" href="posts/business/process-decisions-scale-operations.html">Read article</a>
-            </article>
-
-            <!-- Business post card: automation pricing lens -->
-            <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-02-24">February 24, 2026</time> · Pricing</p>
-                <h3><a class="entry-title-link" href="posts/business/pricing-automation-cost-of-delay.html">How I think about pricing automation by the cost of delay</a></h3>
-                <p>A practical lens for deciding whether automation is worth building now or later.</p>
-                <a class="entry-link" href="posts/business/pricing-automation-cost-of-delay.html">Read article</a>
-            </article>
-
-            <!-- Business post card: weekly operating review -->
-            <article class="entry-card">
-                <p class="entry-meta"><time datetime="2026-01-30">January 30, 2026</time> · Leadership</p>
-                <h3><a class="entry-title-link" href="posts/business/weekly-operating-review-team-alignment.html">The weekly operating review I use to keep teams aligned without wasting time</a></h3>
-                <p>A lightweight review structure for decisions, blockers, ownership, and follow-through.</p>
-                <a class="entry-link" href="posts/business/weekly-operating-review-team-alignment.html">Read article</a>
+                <p class="entry-meta">Category · Business</p>
+                <h3><a class="entry-title-link" href="business.html">Business</a></h3>
+                <p>Strategy, operations, team systems, and practical business decision-making.</p>
+                <a class="entry-link" href="business.html">View all business posts</a>
             </article>
         </div>
     </section>
@@ -254,6 +179,7 @@
     </section>
 
 </main>
+<script src="js/posts-data.js" defer></script>
 <!-- Shared JavaScript for navigation behavior -->
 <script src="js/main.js" defer></script>
 </body>

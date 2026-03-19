@@ -162,6 +162,15 @@ body {
     margin-top: 0.7rem;
 }
 
+.page-intro {
+    margin-top: 0.7rem;
+}
+
+.page-title {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    max-width: 18ch;
+}
+
 .label {
     margin: 0 0 0.55rem;
     font-size: 0.74rem;
@@ -589,6 +598,11 @@ h1 {
 
 .author-posts {
     margin-top: 1.4rem;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.author-posts [data-post-list="author"] {
     display: grid;
     gap: 0.7rem;
 }
