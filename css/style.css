@@ -1,49 +1,99 @@
+/* ==========================================================================
+   Theme tokens
+   --------------------------------------------------------------------------
+   All reusable design values live here so the site can be rethemed by
+   changing variables instead of hunting through individual selectors.
+   ========================================================================== */
 :root {
+    /* Main dark background used by the page gradient. */
     --bg: #2f4858;
+
+    /* Warm accent used for calls to action, labels, and hover emphasis. */
     --accent: #eeaa61;
+
+    /* Secondary brand color used for buttons and category metadata. */
     --teal: #21636c;
+
+    /* Primary readable text color when placed on dark surfaces. */
     --ink: #f5f4ef;
+
+    /* Softer text used for secondary copy and supporting labels. */
     --muted-ink: #d3ddd7;
+
+    /* Default light card surface used for most content modules. */
     --card: #f8efd9;
+
+    /* Text color used inside light cards. */
     --card-ink: #21353f;
+
+    /* Alternate soft card background used to visually separate sections. */
     --card-soft: #dcebe4;
+
+    /* Neutral border used on cards so edges are visible without feeling harsh. */
     --card-border: rgba(47, 72, 88, 0.18);
+
+    /* Accessible focus outline color for keyboard navigation. */
     --focus-ring: #ffd8a8;
+
+    /* Shared shadow token to keep elevation consistent across components. */
     --shadow: 0 24px 40px rgba(12, 24, 34, 0.25);
+
+    /* Typographic system: serif for headings, sans for interface/body text. */
     --font-title: "EB Garamond", serif;
     --font-body: "Zalando Sans", sans-serif;
 }
 
+/* Use border-box everywhere so spacing math is predictable. */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
+/* Smooth scrolling makes anchor jumps feel less abrupt. */
 html {
     scroll-behavior: smooth;
 }
 
+/* ==========================================================================
+   Global page foundation
+   --------------------------------------------------------------------------
+   Sets the main type system, text color, and layered background treatment.
+   ========================================================================== */
 body {
+    /* Remove browser defaults so layout starts from a clean slate. */
     margin: 0;
     min-height: 100vh;
-    font-family: var(--font-body);
+
+    /* Configure the body font globally so components inherit by default. */
+    font-family: var(--font-body), sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: "wdth" 100;
     color: var(--ink);
+
+    /* Multiple gradient layers create depth without relying on images. */
     background:
         radial-gradient(circle at 10% 0%, rgba(238, 170, 97, 0.24), transparent 36%),
         radial-gradient(circle at 95% 10%, rgba(33, 99, 108, 0.42), transparent 38%),
         linear-gradient(145deg, #2f4858 0%, #29424f 52%, #233944 100%);
 }
 
+/* Main page container used by home, category, post, and author pages. */
 .site-shell {
+    /* `min()` keeps the layout wide on desktop but prevents edge-to-edge content
+       on smaller screens by always reserving horizontal gutter space. */
     width: min(1080px, 100% - 2.4rem);
     margin: 0 auto;
     padding: 1.5rem 0 3.5rem;
 }
 
+/* ==========================================================================
+   Header and navigation
+   --------------------------------------------------------------------------
+   The header uses a three-column grid so the brand stays left, the nav stays
+   centered, and the layout still has symmetrical balance.
+   ========================================================================== */
 .topbar {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -52,21 +102,25 @@ body {
     padding: 0.75rem 0.3rem 1.25rem;
 }
 
+/* Brand is simple text on the homepage and a link on internal pages. */
 .brand {
     margin: 0;
     font-weight: 700;
     letter-spacing: 0.01em;
 }
 
+/* Brand link inherits the light theme so it reads clearly on the dark header. */
 .brand a {
     color: var(--ink);
     text-decoration: none;
 }
 
+/* Accent hover gives the brand the same interaction language as the nav. */
 .brand a:hover {
     color: var(--accent);
 }
 
+/* Center the primary navigation independently from the brand column. */
 .topbar nav {
     display: flex;
     align-items: center;
@@ -75,6 +129,7 @@ body {
     position: relative;
 }
 
+/* Shared link treatment for top-level header links. */
 .topbar a {
     color: var(--muted-ink);
     text-decoration: none;
@@ -82,14 +137,17 @@ body {
     transition: color 180ms ease;
 }
 
+/* Hover only changes color; layout should stay stable. */
 .topbar a:hover {
     color: var(--accent);
 }
 
+/* The dropdown wrapper is positioned so the floating menu anchors to it. */
 .nav-dropdown {
     position: relative;
 }
 
+/* `summary` acts like the visible dropdown trigger. */
 .nav-dropdown summary {
     list-style: none;
     display: inline-flex;
@@ -101,10 +159,12 @@ body {
     transition: color 180ms ease;
 }
 
+/* Hide the browser's native disclosure marker so we can draw our own arrow. */
 .nav-dropdown summary::-webkit-details-marker {
     display: none;
 }
 
+/* Custom chevron built with borders so no icon asset is needed. */
 .nav-dropdown summary::after {
     content: "";
     width: 0.42rem;
@@ -115,14 +175,17 @@ body {
     transition: transform 180ms ease;
 }
 
+/* Rotate the chevron when the `<details>` element is open. */
 .nav-dropdown[open] summary::after {
     transform: rotate(-135deg) translateY(-1px);
 }
 
+/* Match the hover behavior of the regular nav links. */
 .nav-dropdown summary:hover {
     color: var(--accent);
 }
 
+/* Floating dropdown panel shown under the Posts trigger. */
 .dropdown-menu {
     position: absolute;
     top: calc(100% + 0.65rem);
@@ -139,10 +202,12 @@ body {
     z-index: 10;
 }
 
+/* Closed dropdowns should not reserve layout space. */
 .nav-dropdown:not([open]) .dropdown-menu {
     display: none;
 }
 
+/* Inner dropdown links are block-level to increase click target size. */
 .dropdown-menu a {
     display: block;
     padding: 0.5rem 0.7rem;
@@ -150,10 +215,17 @@ body {
     font-size: 0.9rem;
 }
 
+/* Hover highlight stays subtle because the menu already sits on a dark panel. */
 .dropdown-menu a:hover {
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* ==========================================================================
+   Hero and top-level page intros
+   --------------------------------------------------------------------------
+   Home uses `.hero`; category archives use `.page-intro`. Both establish the
+   main reading hierarchy before content cards begin.
+   ========================================================================== */
 .hero {
     display: grid;
     grid-template-columns: 1.45fr 1fr;
@@ -162,15 +234,19 @@ body {
     margin-top: 0.7rem;
 }
 
+/* Category archive pages use a simpler intro spacing than the homepage hero. */
 .page-intro {
     margin-top: 0.7rem;
 }
 
+/* Slightly narrower title width keeps archive page headings from becoming
+   visually flat across large desktop screens. */
 .page-title {
     font-size: clamp(2rem, 5vw, 3.1rem);
     max-width: 18ch;
 }
 
+/* Reusable small uppercase label used above section titles and page intros. */
 .label {
     margin: 0 0 0.55rem;
     font-size: 0.74rem;
@@ -180,21 +256,24 @@ body {
     font-weight: 700;
 }
 
+/* Shared heading rules so titles feel cohesive across all page types. */
 h1,
 h2,
 h3 {
-    font-family: var(--font-title);
+    font-family: var(--font-title), serif;
     font-optical-sizing: auto;
     font-style: normal;
     margin: 0;
     line-height: 1.1;
 }
 
+/* The homepage hero uses a larger clamp than archive page headings. */
 h1 {
     font-size: clamp(2rem, 5vw, 3.3rem);
     max-width: 19ch;
 }
 
+/* Common supporting paragraph style for hero and archive intros. */
 .hero-copy {
     margin: 1rem 0 0;
     max-width: 60ch;
@@ -202,6 +281,7 @@ h1 {
     line-height: 1.7;
 }
 
+/* Keep CTA buttons wrapping cleanly on smaller widths. */
 .hero-actions {
     margin-top: 1.4rem;
     display: flex;
@@ -209,6 +289,12 @@ h1 {
     gap: 0.75rem;
 }
 
+/* ==========================================================================
+   Buttons
+   --------------------------------------------------------------------------
+   Buttons are link-based CTAs, so the styling keeps them looking interactive
+   without removing normal anchor behavior.
+   ========================================================================== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -221,23 +307,34 @@ h1 {
     transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
+/* Small lift on hover gives buttons feedback without large motion. */
 .btn:hover {
     transform: translateY(-1px);
 }
 
+/* Primary action uses the warm accent to draw attention first. */
 .btn-primary {
     color: #2d1f10;
     background: var(--accent);
     box-shadow: 0 12px 22px rgba(238, 170, 97, 0.35);
 }
 
+/* Secondary action still reads as important, but sits one step back. */
 .btn-secondary {
     color: var(--ink);
     background: var(--teal);
     box-shadow: 0 12px 22px rgba(33, 99, 108, 0.4);
 }
 
+/* ==========================================================================
+   Profile card
+   --------------------------------------------------------------------------
+   The profile chip lives in the homepage hero and gives quick identity,
+   location, and external links in a compact panel.
+   ========================================================================== */
 .profile-chip {
+    /* Semi-transparent gradient helps the card feel embedded in the hero,
+       rather than looking like a separate white box dropped on top. */
     background: linear-gradient(155deg, rgba(255, 255, 255, 0.18), rgba(33, 99, 108, 0.55));
     border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 20px;
@@ -249,6 +346,7 @@ h1 {
     align-content: center;
 }
 
+/* Fixed avatar sizing prevents the grid from jumping when image ratios vary. */
 .profile-chip img {
     width: 84px;
     height: 84px;
@@ -261,6 +359,7 @@ h1 {
     font-size: 1.35rem;
 }
 
+/* Supporting profile text is intentionally quieter than the name. */
 .profile-chip p {
     margin: 0.45rem 0 0;
     color: var(--muted-ink);
@@ -268,6 +367,7 @@ h1 {
     line-height: 1.45;
 }
 
+/* External profile links wrap as pills inside the profile card. */
 .profile-links {
     list-style: none;
     margin: 0.8rem 0 0;
@@ -277,10 +377,12 @@ h1 {
     gap: 0.8rem 0.5rem;
 }
 
+/* Remove any default list spacing artifacts. */
 .profile-links li {
     margin: 0;
 }
 
+/* Pills are intentionally compact because several need to fit in one card. */
 .profile-links a {
     color: var(--ink);
     text-decoration: none;
@@ -292,15 +394,23 @@ h1 {
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* Hover state mirrors the rest of the palette system. */
 .profile-links a:hover {
     border-color: var(--accent);
     color: var(--accent);
 }
 
+/* ==========================================================================
+   Section scaffolding and reusable content cards
+   --------------------------------------------------------------------------
+   These rules power the homepage latest-posts list, category archive pages,
+   and other repeated card layouts.
+   ========================================================================== */
 .content-section {
     margin-top: 2.2rem;
 }
 
+/* Standard heading wrapper used before each content grid. */
 .section-head {
     margin-bottom: 0.85rem;
 }
@@ -309,12 +419,14 @@ h1 {
     font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+/* Three-up desktop grid that progressively collapses at smaller breakpoints. */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.9rem;
 }
 
+/* Base article-card container used by homepage and category archives. */
 .entry-card {
     background: var(--card);
     color: var(--card-ink);
@@ -326,6 +438,7 @@ h1 {
     flex-direction: column;
 }
 
+/* Meta line carries date + topic and stays visually lighter than the title. */
 .entry-meta {
     margin: 0;
     font-size: 0.76rem;
@@ -340,6 +453,7 @@ h1 {
     font-size: 1.15rem;
 }
 
+/* Generic paragraph spacing inside entry cards. */
 .entry-card p {
     margin: 0.7rem 0 0;
     color: rgba(33, 53, 63, 0.85);
@@ -347,6 +461,7 @@ h1 {
     font-size: 0.94rem;
 }
 
+/* Entry titles are links, but they should read like editorial headlines first. */
 .entry-title-link {
     color: #173b42;
     text-decoration: none;
@@ -356,6 +471,8 @@ h1 {
     color: #0f2b30;
 }
 
+/* The read link is pushed to the bottom via `margin-top: auto` so cards align
+   even when excerpts vary in length. */
 .entry-link {
     margin-top: auto;
     display: inline-flex;
@@ -370,6 +487,12 @@ h1 {
     color: #12363b;
 }
 
+/* ==========================================================================
+   Project summaries
+   --------------------------------------------------------------------------
+   Project cards are flatter than article cards because they act as concise
+   portfolio snapshots, not full editorial teasers.
+   ========================================================================== */
 .project-list {
     display: grid;
     gap: 0.9rem;
@@ -387,21 +510,31 @@ h1 {
     font-size: 1.2rem;
 }
 
+/* Shared project paragraph spacing. */
 .project-card p {
     margin: 0.65rem 0 0;
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
+/* Stack line is slightly bolder to separate tooling from description text. */
 .stack {
     color: rgba(17, 35, 41, 0.72);
     font-weight: 700;
 }
 
+/* ==========================================================================
+   Article pages
+   --------------------------------------------------------------------------
+   These selectors style individual post pages. They are separate from the
+   card system because article pages need longer reading widths and denser
+   information hierarchy.
+   ========================================================================== */
 .article-shell {
     width: min(900px, 100% - 2.4rem);
 }
 
+/* Main article container. */
 .post-article {
     background: var(--card);
     color: var(--card-ink);
@@ -411,23 +544,27 @@ h1 {
     padding: clamp(1.2rem, 2.4vw, 2rem);
 }
 
+/* Header separator visually distinguishes metadata from the article body. */
 .post-header {
     border-bottom: 1px solid rgba(33, 53, 63, 0.14);
     padding-bottom: 1rem;
 }
 
+/* Article titles can be long, so keep them constrained for readability. */
 .post-header h1 {
     font-size: clamp(1.9rem, 4vw, 2.8rem);
     margin-top: 0.15rem;
     max-width: 24ch;
 }
 
+/* Byline groups author, date, and reading time in one compact line. */
 .post-byline {
     margin: 0.7rem 0 0;
     color: rgba(21, 40, 47, 0.78);
     font-size: 0.94rem;
 }
 
+/* Author link is emphasized slightly because it is a navigable entity page. */
 .post-byline a {
     color: #184b52;
     text-decoration: none;
@@ -438,6 +575,7 @@ h1 {
     color: #12363b;
 }
 
+/* Tag pills provide light semantic grouping without overpowering the byline. */
 .tag-list {
     list-style: none;
     margin: 0.9rem 0 0;
@@ -463,12 +601,14 @@ h1 {
     background: rgba(255, 255, 255, 0.62);
 }
 
+/* Long-form body copy uses slightly larger type and generous leading. */
 .post-content {
     margin-top: 1rem;
     line-height: 1.7;
     font-size: 1.08rem;
 }
 
+/* Body subheadings break long articles into readable chunks. */
 .post-content h2 {
     margin-top: 1.5rem;
     font-size: clamp(1.45rem, 2.5vw, 1.8rem);
@@ -479,6 +619,7 @@ h1 {
     color: rgba(21, 40, 47, 0.94);
 }
 
+/* Related posts are visually connected to the article but clearly secondary. */
 .related-posts {
     margin-top: 2rem;
 }
@@ -487,6 +628,7 @@ h1 {
     font-size: clamp(1.35rem, 2.4vw, 1.7rem);
 }
 
+/* Two-up grid on larger screens, one-up on small devices. */
 .related-grid {
     margin-top: 0.8rem;
     display: grid;
@@ -501,6 +643,7 @@ h1 {
     padding: 0.85rem 0.95rem;
 }
 
+/* Small metadata line inside related cards. */
 .related-card p {
     margin: 0;
     color: rgba(17, 35, 41, 0.78);
@@ -520,6 +663,12 @@ h1 {
     color: #0f2e33;
 }
 
+/* ==========================================================================
+   Author page
+   --------------------------------------------------------------------------
+   The author page reuses the light card language, but with a denser archive
+   layout for post discovery.
+   ========================================================================== */
 .author-card {
     background: var(--card);
     color: var(--card-ink);
@@ -529,6 +678,7 @@ h1 {
     padding: clamp(1.2rem, 2.4vw, 2rem);
 }
 
+/* Intro block pairing avatar and author summary. */
 .author-header {
     display: grid;
     grid-template-columns: 90px 1fr;
@@ -536,6 +686,7 @@ h1 {
     align-items: center;
 }
 
+/* Keep the author image circular and visually consistent with the homepage. */
 .author-header img {
     width: 90px;
     height: 90px;
@@ -550,17 +701,20 @@ h1 {
     line-height: 1.6;
 }
 
+/* Outer archive wrapper on the author page. */
 .author-posts {
     margin-top: 1.4rem;
     display: grid;
     gap: 0.7rem;
 }
 
+/* The post list itself is rendered by JavaScript into this data container. */
 .author-posts [data-post-list="author"] {
     display: grid;
     gap: 0.7rem;
 }
 
+/* Individual author archive item. */
 .author-post {
     background: var(--card-soft);
     border: 1px solid rgba(17, 35, 41, 0.14);
@@ -568,6 +722,7 @@ h1 {
     padding: 0.85rem 0.95rem;
 }
 
+/* Metadata line above each author-post title. */
 .author-post p {
     margin: 0;
     font-size: 0.84rem;
@@ -589,32 +744,46 @@ h1 {
     color: #0f2e33;
 }
 
+/* Keyboard users need a clear visible focus style across links and buttons. */
 a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
 }
 
+/* ==========================================================================
+   Responsive behavior
+   --------------------------------------------------------------------------
+   Breakpoints collapse multi-column layouts progressively while preserving
+   spacing rhythm and interaction affordances.
+   ========================================================================== */
 @media (max-width: 980px) {
+    /* Stack the homepage hero once the side-by-side layout gets cramped. */
     .hero {
         grid-template-columns: 1fr;
     }
 
+    /* Article/category cards move from three columns to two. */
     .card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 640px) {
+    /* Reduce outer gutters on very small screens. */
     .site-shell {
         width: min(1080px, 100% - 1.3rem);
     }
 
+    /* Intention: stack header pieces vertically on mobile.
+       Note: `.topbar` is currently a grid in desktop styles, so the nav layout
+       rules below do most of the real responsive work. */
     .topbar {
         flex-direction: column;
         align-items: flex-start;
     }
 
+    /* Turn the top nav into an adaptive grid so items wrap cleanly. */
     .topbar nav {
         width: 100%;
         display: grid;
@@ -622,15 +791,19 @@ button:focus-visible {
         gap: 0.45rem;
     }
 
+    /* Let the dropdown occupy a full mobile grid cell. */
     .nav-dropdown {
         width: 100%;
     }
 
+    /* Spread summary text and chevron across the available width. */
     .nav-dropdown summary {
         width: 100%;
         justify-content: space-between;
     }
 
+    /* On small screens, the dropdown behaves like an inline expanding block
+       instead of a floating overlay. */
     .dropdown-menu {
         position: static;
         transform: none;
@@ -638,10 +811,12 @@ button:focus-visible {
         margin-top: 0.4rem;
     }
 
+    /* Collapse card grids to a single column for comfortable reading. */
     .card-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Tighten the homepage profile card image/text layout. */
     .profile-chip {
         grid-template-columns: 72px 1fr;
     }
@@ -651,10 +826,12 @@ button:focus-visible {
         height: 72px;
     }
 
+    /* Related content becomes single column to avoid narrow cards. */
     .related-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Author intro also stacks vertically on mobile. */
     .author-header {
         grid-template-columns: 1fr;
     }
