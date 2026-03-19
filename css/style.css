@@ -72,6 +72,7 @@ body {
     align-items: center;
     gap: 1rem;
     justify-self: center;
+    position: relative;
 }
 
 .topbar a {
@@ -83,6 +84,74 @@ body {
 
 .topbar a:hover {
     color: var(--accent);
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown summary {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted-ink);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 180ms ease;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-dropdown summary::after {
+    content: "";
+    width: 0.42rem;
+    height: 0.42rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 180ms ease;
+}
+
+.nav-dropdown[open] summary::after {
+    transform: rotate(-135deg) translateY(-1px);
+}
+
+.nav-dropdown summary:hover {
+    color: var(--accent);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    padding: 0.42rem;
+    display: grid;
+    gap: 0.2rem;
+    background: rgba(21, 40, 47, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    box-shadow: 0 16px 28px rgba(9, 22, 31, 0.28);
+    z-index: 10;
+}
+
+.nav-dropdown:not([open]) .dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .hero {
@@ -583,6 +652,22 @@ button:focus-visible {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
         gap: 0.45rem;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .nav-dropdown summary {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        margin-top: 0.4rem;
     }
 
     .card-grid {

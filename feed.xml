@@ -8,6 +8,14 @@
         <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
 
         <item>
+            <title>The process decisions that actually help a small team scale operations</title>
+            <link>https://sayrolivares.github.io/posts/business/process-decisions-scale-operations.html</link>
+            <guid>https://sayrolivares.github.io/posts/business/process-decisions-scale-operations.html</guid>
+            <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+            <description>Which process decisions create leverage for small teams and which ones create drag.</description>
+        </item>
+
+        <item>
             <title>How I design SEO systems that stay useful after algorithm changes</title>
             <link>https://sayrolivares.github.io/posts/writing/seo-systems-durable.html</link>
             <guid>https://sayrolivares.github.io/posts/writing/seo-systems-durable.html</guid>
@@ -24,6 +32,14 @@
         </item>
 
         <item>
+            <title>How I think about pricing automation by the cost of delay</title>
+            <link>https://sayrolivares.github.io/posts/business/pricing-automation-cost-of-delay.html</link>
+            <guid>https://sayrolivares.github.io/posts/business/pricing-automation-cost-of-delay.html</guid>
+            <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+            <description>Framework for evaluating automation work by the cost of delay.</description>
+        </item>
+
+        <item>
             <title>What studying computer science changed in how I lead projects</title>
             <link>https://sayrolivares.github.io/posts/writing/cs-study-changed-my-leadership.html</link>
             <guid>https://sayrolivares.github.io/posts/writing/cs-study-changed-my-leadership.html</guid>
@@ -37,6 +53,14 @@
             <guid>https://sayrolivares.github.io/posts/coding/zapier-ops-workflow-95-percent.html</guid>
             <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
             <description>Automation design pattern using Zapier for operational efficiency.</description>
+        </item>
+
+        <item>
+            <title>The weekly operating review I use to keep teams aligned without wasting time</title>
+            <link>https://sayrolivares.github.io/posts/business/weekly-operating-review-team-alignment.html</link>
+            <guid>https://sayrolivares.github.io/posts/business/weekly-operating-review-team-alignment.html</guid>
+            <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+            <description>A simple weekly operating review format for alignment, blockers, and decision tracking.</description>
         </item>
 
         <item>
