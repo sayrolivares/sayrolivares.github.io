@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic document metadata -->
     <meta charset="UTF-8">
     <title>Sayr Olivares | Portfolio, Writing & Code Notes</title>
     <meta name="description" content="Personal portfolio by Sayr Olivares. A home for writing, coding notes, and projects in SEO, automation, and data science.">
@@ -9,24 +10,28 @@
     <link rel="canonical" href="https://sayrolivares.github.io/">
     <link rel="alternate" type="application/rss+xml" title="Sayr Olivares Blog RSS" href="https://sayrolivares.github.io/feed.xml">
 
+    <!-- Open Graph metadata for link previews -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sayrolivares.github.io/">
     <meta property="og:title" content="Sayr Olivares | Portfolio, Writing & Code Notes">
     <meta property="og:description" content="A personal site for essays, coding posts, and portfolio projects.">
     <meta property="og:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
 
+    <!-- Twitter card metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sayrolivares.github.io/">
     <meta name="twitter:title" content="Sayr Olivares | Portfolio, Writing & Code Notes">
     <meta name="twitter:description" content="A personal site for essays, coding posts, and portfolio projects.">
     <meta name="twitter:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
 
+    <!-- Shared stylesheet, favicon, and web fonts -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="assets/icons/favicon4.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
+    <!-- Structured data describing the site owner -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -45,12 +50,18 @@
 </head>
 <body>
 <main class="site-shell">
+    <!-- Global site header and primary navigation -->
     <header class="topbar">
+        <!-- Brand link back to the homepage -->
         <p class="brand"><a href="index.html">Sayr Olivares</a></p>
+
+        <!-- Main navigation with a posts dropdown -->
         <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <details class="nav-dropdown">
                 <summary>Posts</summary>
+
+                <!-- Category shortcuts inside the posts dropdown -->
                 <div class="dropdown-menu">
                     <a href="#writing">Writing</a>
                     <a href="#coding">Coding</a>
@@ -62,9 +73,11 @@
         </nav>
     </header>
 
+    <!-- Hero section introducing the site and its main purpose -->
     <section class="hero" id="about">
+        <!-- Main hero copy and primary calls to action -->
         <div>
-            <h1>Building in public through essays, code notes, and practical projects.</h1>
+            <h1>Building through essays, code notes and practical projects.</h1>
             <p class="hero-copy">
                 I use this site as my own Substack-style writing space and coding blog.
                 Here you can follow what I am learning, what I am shipping, and how I think about SEO, automation, and data science.
@@ -74,12 +87,16 @@
                 <a class="btn btn-secondary" href="#coding">Browse code posts</a>
             </div>
         </div>
+
+        <!-- Profile card with identity and external links -->
         <aside class="profile-chip">
             <img src="assets/images/picture.jpg" alt="Portrait of Sayr Olivares">
             <div>
                 <h2>Sayr Olivares</h2>
                 <p>Tech lead · CS student · Open to collaborations</p>
                 <p>Bogota, Colombia</p>
+
+                <!-- External profile and social links -->
                 <ul class="profile-links" aria-label="Connect links">
                     <li><a href="https://github.com/sayrolivares" target="_blank" rel="noopener">GitHub</a></li>
                     <li><a href="https://www.linkedin.com/in/sayrolivares" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -90,6 +107,7 @@
         </aside>
     </section>
 
+    <!-- Introductory section for post categories -->
     <section class="content-section" id="posts" aria-labelledby="posts-title">
         <div class="section-head">
             <p class="label">Posts</p>
@@ -98,24 +116,32 @@
         </div>
     </section>
 
+    <!-- Writing category section -->
     <section class="content-section" id="writing" aria-labelledby="writing-title">
         <div class="section-head">
             <p class="label">Writing</p>
             <h2 id="writing-title">Essays and field notes</h2>
         </div>
+
+        <!-- Writing article cards -->
         <div class="card-grid">
+            <!-- Writing post card: SEO systems -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-03-10">March 10, 2026</time> · SEO</p>
                 <h3><a class="entry-title-link" href="posts/writing/seo-systems-durable.html">How I design SEO systems that stay useful after algorithm changes</a></h3>
                 <p>Notes on building durable search workflows and avoiding overfitting to trends.</p>
                 <a class="entry-link" href="posts/writing/seo-systems-durable.html">Read article</a>
             </article>
+
+            <!-- Writing post card: CS and leadership -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-02-18">February 18, 2026</time> · Career</p>
                 <h3><a class="entry-title-link" href="posts/writing/cs-study-changed-my-leadership.html">What studying computer science changed in how I lead projects</a></h3>
                 <p>A reflection on combining operations leadership with stronger technical depth.</p>
                 <a class="entry-link" href="posts/writing/cs-study-changed-my-leadership.html">Read article</a>
             </article>
+
+            <!-- Writing post card: AI learning -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-01-22">January 22, 2026</time> · AI</p>
                 <h3><a class="entry-title-link" href="posts/writing/ai-learning-framework.html">My current framework for learning AI without getting distracted</a></h3>
@@ -125,24 +151,32 @@
         </div>
     </section>
 
+    <!-- Coding category section -->
     <section class="content-section" id="coding" aria-labelledby="coding-title">
         <div class="section-head">
             <p class="label">Coding Blog</p>
             <h2 id="coding-title">Build logs and technical walkthroughs</h2>
         </div>
+
+        <!-- Coding article cards -->
         <div class="card-grid">
+            <!-- Coding post card: Pandas data cleaning -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-03-03">March 3, 2026</time> · Python</p>
                 <h3><a class="entry-title-link" href="posts/coding/pandas-ecommerce-cleaning-steps.html">Cleaning noisy ecommerce data with Pandas in 6 reusable steps</a></h3>
                 <p>From raw CSVs to reliable analysis-ready tables with validation checkpoints.</p>
                 <a class="entry-link" href="posts/coding/pandas-ecommerce-cleaning-steps.html">Read article</a>
             </article>
+
+            <!-- Coding post card: automation workflow -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-02-08">February 8, 2026</time> · Automation</p>
                 <h3><a class="entry-title-link" href="posts/coding/zapier-ops-workflow-95-percent.html">The exact workflow I used to cut repetitive operations by 95%</a></h3>
                 <p>A practical breakdown of trigger logic, retries, and handoff design.</p>
                 <a class="entry-link" href="posts/coding/zapier-ops-workflow-95-percent.html">Read article</a>
             </article>
+
+            <!-- Coding post card: cloud decision records -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-01-12">January 12, 2026</time> · Cloud</p>
                 <h3><a class="entry-title-link" href="posts/coding/aws-infrastructure-decisions.html">From manual setup to documented infrastructure decisions</a></h3>
@@ -152,24 +186,32 @@
         </div>
     </section>
 
+    <!-- Business category section -->
     <section class="content-section" id="business" aria-labelledby="business-title">
         <div class="section-head">
             <p class="label">Business</p>
             <h2 id="business-title">Strategy, operations, and growth</h2>
         </div>
+
+        <!-- Business article cards -->
         <div class="card-grid">
+            <!-- Business post card: operational scale decisions -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-03-14">March 14, 2026</time> · Operations</p>
                 <h3><a class="entry-title-link" href="posts/business/process-decisions-scale-operations.html">The process decisions that actually help a small team scale operations</a></h3>
                 <p>What to standardize early, what to leave flexible, and how to avoid process theatre.</p>
                 <a class="entry-link" href="posts/business/process-decisions-scale-operations.html">Read article</a>
             </article>
+
+            <!-- Business post card: automation pricing lens -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-02-24">February 24, 2026</time> · Pricing</p>
                 <h3><a class="entry-title-link" href="posts/business/pricing-automation-cost-of-delay.html">How I think about pricing automation by the cost of delay</a></h3>
                 <p>A practical lens for deciding whether automation is worth building now or later.</p>
                 <a class="entry-link" href="posts/business/pricing-automation-cost-of-delay.html">Read article</a>
             </article>
+
+            <!-- Business post card: weekly operating review -->
             <article class="entry-card">
                 <p class="entry-meta"><time datetime="2026-01-30">January 30, 2026</time> · Leadership</p>
                 <h3><a class="entry-title-link" href="posts/business/weekly-operating-review-team-alignment.html">The weekly operating review I use to keep teams aligned without wasting time</a></h3>
@@ -179,22 +221,30 @@
         </div>
     </section>
 
+    <!-- Projects section highlighting practical work -->
     <section class="content-section" id="projects" aria-labelledby="projects-title">
         <div class="section-head">
             <p class="label">Portfolio</p>
             <h2 id="projects-title">Selected projects</h2>
         </div>
+
+        <!-- Project summary cards -->
         <div class="project-list">
+            <!-- Project card: SEO content engine -->
             <article class="project-card">
                 <h3>SEO content engine for healthcare startup</h3>
                 <p>Owned strategy, production, and reporting from keyword mapping to monthly growth reviews.</p>
                 <p class="stack">Stack: GA4, Search Console, Notion, editorial SOPs</p>
             </article>
+
+            <!-- Project card: operations automation migration -->
             <article class="project-card">
                 <h3>Ops automation migration</h3>
                 <p>Rebuilt legacy manual flows with integrated tools and reduced repetitive work across teams.</p>
                 <p class="stack">Stack: Zapier, Make, Airtable, Slack</p>
             </article>
+
+            <!-- Project card: data science learning lab -->
             <article class="project-card">
                 <h3>Learning lab for data science</h3>
                 <p>A personal repository of mini projects for statistics, visualizations, and machine learning practice.</p>
@@ -204,6 +254,7 @@
     </section>
 
 </main>
+<!-- Shared JavaScript for navigation behavior -->
 <script src="js/main.js" defer></script>
 </body>
 </html>
