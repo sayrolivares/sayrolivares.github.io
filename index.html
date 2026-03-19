@@ -1,154 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Basic document metadata -->
-    <meta charset="UTF-8">
-    <title>Sayr Olivares | Portfolio, Writing & Code Notes</title>
-    <meta name="description" content="Personal portfolio by Sayr Olivares. A home for writing, coding notes, and projects in SEO, automation, and data science.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow,max-image-preview:large">
-    <link rel="canonical" href="https://sayrolivares.github.io/">
-    <link rel="alternate" type="application/rss+xml" title="Sayr Olivares Blog RSS" href="https://sayrolivares.github.io/feed.xml">
+---
+layout: default
+title: Sayr Olivares
+seo_title: Sayr Olivares | Portfolio, Writing & Code Notes
+description: Personal portfolio by Sayr Olivares. A home for writing, coding notes, and projects in SEO, automation, and data science.
+og_description: A personal site for essays, coding posts, and portfolio projects.
+schema_type: person
+og_type: website
+nav_label: Main navigation
+---
+{% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+<section class="hero" id="about">
+    <div>
+        <h1>I’m Sayr Olivares. I build through essays, code notes and projects.</h1>
+        <p class="hero-copy">
+            I use this site as my own writing space and blog.
+            Here you can follow what I am learning, what I am building, how I think about automation, general stuff and data science.
+        </p>
+    </div>
 
-    <!-- Open Graph metadata for link previews -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sayrolivares.github.io/">
-    <meta property="og:title" content="Sayr Olivares | Portfolio, Writing & Code Notes">
-    <meta property="og:description" content="A personal site for essays, coding posts, and portfolio projects.">
-    <meta property="og:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-
-    <!-- Twitter card metadata -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://sayrolivares.github.io/">
-    <meta name="twitter:title" content="Sayr Olivares | Portfolio, Writing & Code Notes">
-    <meta name="twitter:description" content="A personal site for essays, coding posts, and portfolio projects.">
-    <meta name="twitter:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-
-    <!-- Shared stylesheet, favicon, and web fonts -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="assets/icons/favicon4.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-    <!-- Structured data describing the site owner -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Sayr Olivares",
-            "url": "https://sayrolivares.github.io/",
-            "image": "https://sayrolivares.github.io/assets/images/picture.jpg",
-            "description": "Tech professional writing about SEO, automation, and data science.",
-            "sameAs": [
-                "https://www.linkedin.com/in/sayrolivares",
-                "https://github.com/sayrolivares",
-                "https://x.com/sayrolivares"
-            ]
-        }
-    </script>
-</head>
-<body>
-<main class="site-shell">
-    <!-- Global site header and primary navigation -->
-    <header class="topbar">
-        <!-- Brand link back to the homepage -->
-        <p class="brand"><a href="index.html">Sayr Olivares</a></p>
-
-        <!-- Main navigation with a posts dropdown -->
-        <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <details class="nav-dropdown">
-                <summary>Posts</summary>
-
-                <!-- Category shortcuts inside the posts dropdown -->
-                <div class="dropdown-menu">
-                    <a href="writing.html">Writing</a>
-                    <a href="coding.html">Coding</a>
-                    <a href="business.html">Business</a>
-                </div>
-            </details>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-        </nav>
-    </header>
-
-    <!-- Hero section introducing the site and its main purpose -->
-    <section class="hero" id="about">
-        <!-- Main hero copy and primary calls to action -->
+    <aside class="profile-chip">
+        <img src="{{ '/assets/images/picture.jpg' | relative_url }}" alt="Portrait of Sayr Olivares">
         <div>
-            <h1>I’m Sayr Olivares. I build through essays, code notes and projects.</h1>
-            <p class="hero-copy">
-                I use this site as my own writing space and blog.
-                Here you can follow what I am learning, what I am building, how I think about automation, general stuff and data science.
-            </p>
+            <h2>Sayr Olivares</h2>
+            <p>Tech lead · CS student · Open to collaborations</p>
+            <p>Bogota, Colombia</p>
+            <ul class="profile-links" aria-label="Connect links">
+                <li><a href="https://github.com/sayrolivares" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/sayrolivares" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://x.com/sayrolivares" target="_blank" rel="noopener">X</a></li>
+                <li><a href="https://www.goodreads.com/user/show/124600732-sayr-olivares" target="_blank" rel="noopener">Goodreads</a></li>
+            </ul>
         </div>
+    </aside>
+</section>
 
-        <!-- Profile card with identity and external links -->
-        <aside class="profile-chip">
-            <img src="assets/images/picture.jpg" alt="Portrait of Sayr Olivares">
-            <div>
-                <h2>Sayr Olivares</h2>
-                <p>Tech lead · CS student · Open to collaborations</p>
-                <p>Bogota, Colombia</p>
+<section class="content-section" id="posts" aria-labelledby="posts-title">
+    <div class="section-head">
+        <p class="label">Latest Posts</p>
+        <h2 id="posts-title">Most recent publishing</h2>
+        <p class="hero-copy">This list is generated at build time from the post pages and always shows the latest three published articles.</p>
+    </div>
+    <div class="card-grid" data-post-list="latest">
+        {% for post in post_pages limit: 3 %}
+            {% include post_card.html post=post %}
+        {% endfor %}
+    </div>
+</section>
 
-                <!-- External profile and social links -->
-                <ul class="profile-links" aria-label="Connect links">
-                    <li><a href="https://github.com/sayrolivares" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/sayrolivares" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://x.com/sayrolivares" target="_blank" rel="noopener">X</a></li>
-                    <li><a href="https://www.goodreads.com/user/show/124600732-sayr-olivares" target="_blank" rel="noopener">Goodreads</a></li>
-                </ul>
-            </div>
-        </aside>
-    </section>
+<section class="content-section" id="projects" aria-labelledby="projects-title">
+    <div class="section-head">
+        <p class="label">Portfolio</p>
+        <h2 id="projects-title">Selected projects</h2>
+    </div>
 
-    <!-- Homepage section showing the latest three published posts -->
-    <section class="content-section" id="posts" aria-labelledby="posts-title">
-        <div class="section-head">
-            <p class="label">Latest Posts</p>
-            <h2 id="posts-title">Most recent publishing</h2>
-            <p class="hero-copy">This list is rendered from the shared post index and always shows the latest three posts by publish date.</p>
-        </div>
-        <div class="card-grid" data-post-list="latest" data-limit="3"></div>
-    </section>
+    <div class="project-list">
+        <article class="project-card">
+            <h3>SEO content engine for healthcare startup</h3>
+            <p>Owned strategy, production, and reporting from keyword mapping to monthly growth reviews.</p>
+            <p class="stack">Stack: GA4, Search Console, Notion, editorial SOPs</p>
+        </article>
 
-    <!-- Projects section highlighting practical work -->
-    <section class="content-section" id="projects" aria-labelledby="projects-title">
-        <div class="section-head">
-            <p class="label">Portfolio</p>
-            <h2 id="projects-title">Selected projects</h2>
-        </div>
+        <article class="project-card">
+            <h3>Ops automation migration</h3>
+            <p>Rebuilt legacy manual flows with integrated tools and reduced repetitive work across teams.</p>
+            <p class="stack">Stack: Zapier, Make, Airtable, Slack</p>
+        </article>
 
-        <!-- Project summary cards -->
-        <div class="project-list">
-            <!-- Project card: SEO content engine -->
-            <article class="project-card">
-                <h3>SEO content engine for healthcare startup</h3>
-                <p>Owned strategy, production, and reporting from keyword mapping to monthly growth reviews.</p>
-                <p class="stack">Stack: GA4, Search Console, Notion, editorial SOPs</p>
-            </article>
-
-            <!-- Project card: operations automation migration -->
-            <article class="project-card">
-                <h3>Ops automation migration</h3>
-                <p>Rebuilt legacy manual flows with integrated tools and reduced repetitive work across teams.</p>
-                <p class="stack">Stack: Zapier, Make, Airtable, Slack</p>
-            </article>
-
-            <!-- Project card: data science learning lab -->
-            <article class="project-card">
-                <h3>Learning lab for data science</h3>
-                <p>A personal repository of mini projects for statistics, visualizations, and machine learning practice.</p>
-                <p class="stack">Stack: Python, Pandas, Matplotlib, Jupyter</p>
-            </article>
-        </div>
-    </section>
-
-</main>
-<div data-site-footer data-footer-path="footer.html"></div>
-<script src="js/posts-data.js" defer></script>
-<!-- Shared JavaScript for navigation behavior -->
-<script src="js/main.js" defer></script>
-</body>
-</html>
+        <article class="project-card">
+            <h3>Learning lab for data science</h3>
+            <p>A personal repository of mini projects for statistics, visualizations, and machine learning practice.</p>
+            <p class="stack">Stack: Python, Pandas, Matplotlib, Jupyter</p>
+        </article>
+    </div>
+</section>

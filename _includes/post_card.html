@@ -1,0 +1,10 @@
+<article class="entry-card">
+    <p class="entry-meta">
+        <time datetime="{{ include.post.date | date: '%Y-%m-%d' }}">{{ include.post.date | date: "%B %-d, %Y" }}</time>
+        {% if include.post.category_label %} · {{ include.post.category_label }}{% endif %}
+        {% if include.post.topic %} · {{ include.post.topic }}{% endif %}
+    </p>
+    <h3><a class="entry-title-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+    <p>{{ include.post.description }}</p>
+    <a class="entry-link" href="{{ include.post.url | relative_url }}">Read article</a>
+</article>

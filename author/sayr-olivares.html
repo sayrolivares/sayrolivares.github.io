@@ -1,86 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sayr Olivares - Author Page</title>
-    <meta name="description" content="Author page for Sayr Olivares. Writing and coding posts on SEO, automation, cloud, and data science.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow,max-image-preview:large">
-    <link rel="canonical" href="https://sayrolivares.github.io/author/sayr-olivares.html">
-
-    <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://sayrolivares.github.io/author/sayr-olivares.html">
-    <meta property="og:title" content="Sayr Olivares - Author Page">
-    <meta property="og:description" content="Writing and coding posts on SEO, automation, cloud, and data science.">
-    <meta property="og:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sayr Olivares - Author Page">
-    <meta name="twitter:description" content="Writing and coding posts on SEO, automation, cloud, and data science.">
-    <meta name="twitter:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/png" href="../assets/icons/favicon4.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "name": "Sayr Olivares - Author Page",
-            "url": "https://sayrolivares.github.io/author/sayr-olivares.html",
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Sayr Olivares",
-                "url": "https://sayrolivares.github.io/author/sayr-olivares.html",
-                "sameAs": [
-                    "https://www.linkedin.com/in/sayrolivares",
-                    "https://github.com/sayrolivares",
-                    "https://x.com/sayrolivares"
-                ]
-            }
-        }
-    </script>
-</head>
-<body>
-<main class="site-shell article-shell">
-    <header class="topbar">
-        <p class="brand"><a href="../index.html">Sayr Olivares</a></p>
-        <nav aria-label="Author navigation">
-            <a href="../index.html">Home</a>
-            <details class="nav-dropdown">
-                <summary>Posts</summary>
-                <div class="dropdown-menu">
-                    <a href="../writing.html">Writing</a>
-                    <a href="../coding.html">Coding</a>
-                    <a href="../business.html">Business</a>
-                </div>
-            </details>
-            <a href="../index.html#projects">Projects</a>
-            <a href="../index.html#about">About</a>
-        </nav>
+---
+layout: default
+title: Sayr Olivares - Author Page
+description: Author page for Sayr Olivares. Writing and coding posts on SEO, automation, cloud, and data science.
+og_type: profile
+schema_type: collection
+nav_label: Author navigation
+shell_class: article-shell
+---
+{% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+<section class="author-card">
+    <header class="author-header">
+        <img src="{{ '/assets/images/picture.jpg' | relative_url }}" alt="Portrait of Sayr Olivares">
+        <div>
+            <p class="label">Author</p>
+            <h1>Sayr Olivares</h1>
+            <p>Tech lead and computer science student writing about SEO systems, automation design, cloud decisions, and practical data workflows.</p>
+        </div>
     </header>
 
-    <section class="author-card">
-        <header class="author-header">
-            <img src="../assets/images/picture.jpg" alt="Portrait of Sayr Olivares">
-            <div>
-                <p class="label">Author</p>
-                <h1>Sayr Olivares</h1>
-                <p>Tech lead and computer science student writing about SEO systems, automation design, cloud decisions, and practical data workflows.</p>
-            </div>
-        </header>
-
-        <section class="author-posts" aria-labelledby="latest-posts">
-            <h2 id="latest-posts">Published posts</h2>
-            <div data-post-list="author" data-base-path="../"></div>
-        </section>
+    <section class="author-posts" aria-labelledby="latest-posts">
+        <h2 id="latest-posts">Published posts</h2>
+        <div class="author-post-list">
+            {% for post in post_pages %}
+            <article class="author-post">
+                <p>
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                    {% if post.category_label %} · {{ post.category_label }}{% endif %}
+                    {% if post.topic %} · {{ post.topic }}{% endif %}
+                </p>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </article>
+            {% endfor %}
+        </div>
     </section>
-</main>
-<div data-site-footer data-footer-path="../footer.html"></div>
-<script src="../js/posts-data.js" defer></script>
-<script src="../js/main.js" defer></script>
-</body>
-</html>
+</section>

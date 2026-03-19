@@ -1,96 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>From Manual Setup to Documented Infrastructure Decisions | Sayr Olivares</title>
-    <meta name="description" content="How lightweight infrastructure decision records improved AWS changes, team alignment, and operational confidence.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow,max-image-preview:large">
-    <link rel="canonical" href="https://sayrolivares.github.io/posts/coding/aws-infrastructure-decisions.html">
-
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sayrolivares.github.io/posts/coding/aws-infrastructure-decisions.html">
-    <meta property="og:title" content="From Manual Setup to Documented Infrastructure Decisions">
-    <meta property="og:description" content="How lightweight infrastructure decision records improved AWS changes and team alignment.">
-    <meta property="og:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-    <meta property="article:published_time" content="2026-01-12">
-    <meta property="article:modified_time" content="2026-01-12">
-    <meta property="article:section" content="Coding Blog">
-    <meta property="article:tag" content="Cloud">
-    <meta property="article:tag" content="AWS">
-    <meta property="article:tag" content="Architecture">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="From Manual Setup to Documented Infrastructure Decisions">
-    <meta name="twitter:description" content="How lightweight infrastructure decision records improved AWS changes and team alignment.">
-    <meta name="twitter:image" content="https://sayrolivares.github.io/assets/images/picture.jpg">
-
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" type="image/png" href="../../assets/icons/favicon4.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": "From Manual Setup to Documented Infrastructure Decisions",
-            "description": "How lightweight infrastructure decision records improved AWS changes, team alignment, and operational confidence.",
-            "datePublished": "2026-01-12",
-            "dateModified": "2026-01-12",
-            "url": "https://sayrolivares.github.io/posts/coding/aws-infrastructure-decisions.html",
-            "author": {
-                "@type": "Person",
-                "name": "Sayr Olivares",
-                "url": "https://sayrolivares.github.io/author/sayr-olivares.html"
-            },
-            "publisher": {
-                "@type": "Person",
-                "name": "Sayr Olivares"
-            },
-            "image": "https://sayrolivares.github.io/assets/images/picture.jpg",
-            "articleSection": "Coding Blog",
-            "keywords": ["Cloud", "AWS", "Architecture"]
-        }
-    </script>
-</head>
-<body>
-<main class="site-shell article-shell">
-    <header class="topbar">
-        <p class="brand"><a href="../../index.html">Sayr Olivares</a></p>
-        <nav aria-label="Post navigation">
-            <a href="../../index.html">Home</a>
-            <details class="nav-dropdown">
-                <summary>Posts</summary>
-                <div class="dropdown-menu">
-                    <a href="../../writing.html">Writing</a>
-                    <a href="../../coding.html">Coding</a>
-                    <a href="../../business.html">Business</a>
-                </div>
-            </details>
-            <a href="../../index.html#projects">Projects</a>
-            <a href="../../index.html#about">About</a>
-        </nav>
-    </header>
-
-    <article class="post-article">
-        <header class="post-header">
-            <p class="label">Coding Blog · Cloud</p>
-            <h1>From manual setup to documented infrastructure decisions</h1>
-            <p class="post-byline">
-                By <a href="../../author/sayr-olivares.html" rel="author">Sayr Olivares</a> ·
-                <time datetime="2026-01-12">January 12, 2026</time> · 6 min read
-            </p>
-            <ul class="tag-list" aria-label="Post tags">
-                <li><a class="tag-pill" href="../../coding.html">Coding</a></li>
-                <li><a class="tag-pill" href="../../coding.html">Cloud</a></li>
-                <li><a class="tag-pill" href="../../index.html#projects">AWS</a></li>
-            </ul>
-        </header>
-
-        <div class="post-content">
-            <p>Manual infrastructure changes can work for small teams, but they create memory-based operations. That is risky. When decisions are undocumented, you lose context each time ownership changes.</p>
+---
+layout: post
+title: "From manual setup to documented infrastructure decisions"
+description: "How lightweight infrastructure decision records improved AWS changes, team alignment, and operational confidence."
+og_description: "How lightweight infrastructure decision records improved AWS changes and team alignment."
+date: 2026-01-12
+category_slug: coding
+category_label: "Coding Blog"
+category_nav_label: "Coding"
+topic: "Cloud"
+tags:
+  - "Cloud"
+  - "AWS"
+  - "Architecture"
+---
+<p>Manual infrastructure changes can work for small teams, but they create memory-based operations. That is risky. When decisions are undocumented, you lose context each time ownership changes.</p>
             <p>I introduced lightweight decision records before every meaningful AWS change. Each record answered five questions: problem, options considered, chosen path, tradeoffs, and rollback plan.</p>
 
             <h2>Simple documentation speeds delivery</h2>
@@ -100,25 +23,3 @@
             <h2>Consistency made scaling easier</h2>
             <p>Once the template was adopted, new contributors could understand system intent quickly. This reduced onboarding friction and created a shared language for risk and cost discussions.</p>
             <p>Documented decisions are a leverage point. They make infrastructure work less person-dependent and more resilient over time.</p>
-        </div>
-
-        <section class="related-posts" aria-labelledby="related-title">
-            <h2 id="related-title">Related posts</h2>
-            <div class="related-grid">
-                <article class="related-card">
-                    <p>Coding · Automation</p>
-                    <a href="zapier-ops-workflow-95-percent.html">The exact workflow I used to cut repetitive operations by 95%</a>
-                </article>
-                <article class="related-card">
-                    <p>Coding · Python</p>
-                    <a href="pandas-ecommerce-cleaning-steps.html">Cleaning noisy ecommerce data with Pandas in 6 reusable steps</a>
-                </article>
-            </div>
-        </section>
-    </article>
-</main>
-<div data-site-footer data-footer-path="../../footer.html"></div>
-<script src="../../js/posts-data.js" defer></script>
-<script src="../../js/main.js" defer></script>
-</body>
-</html>

@@ -391,7 +391,7 @@ h1 {
     flex-direction: column;
 }
 
-/* Meta line carries date + topic and stays visually lighter than the title. */
+/* Meta line carries date + article label and stays visually lighter than the title. */
 .entry-meta {
     margin: 0;
     font-size: 0.76rem;
@@ -438,6 +438,39 @@ h1 {
 
 .entry-link:hover {
     color: #12363b;
+}
+
+/* The homepage latest-posts rail uses a quieter dark variant so those cards
+   feel integrated with the page background rather than popping as bright tiles. */
+[data-post-list="latest"] .entry-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.025));
+    color: var(--ink);
+    border-color: rgba(238, 170, 97, 0.12);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+[data-post-list="latest"] .entry-meta {
+    color: rgba(238, 170, 97, 0.84);
+}
+
+[data-post-list="latest"] .entry-card p {
+    color: rgba(245, 244, 239, 0.76);
+}
+
+[data-post-list="latest"] .entry-title-link {
+    color: #f3e3c7;
+}
+
+[data-post-list="latest"] .entry-title-link:hover {
+    color: #eeaa61;
+}
+
+[data-post-list="latest"] .entry-link {
+    color: rgba(238, 170, 97, 0.88);
+}
+
+[data-post-list="latest"] .entry-link:hover {
+    color: #f6c084;
 }
 
 /* ==========================================================================
@@ -764,8 +797,8 @@ h1 {
     gap: 0.7rem;
 }
 
-/* The post list itself is rendered by JavaScript into this data container. */
-.author-posts [data-post-list="author"] {
+/* The archive list is a simple stacked column inside the author section. */
+.author-post-list {
     display: grid;
     gap: 0.7rem;
 }

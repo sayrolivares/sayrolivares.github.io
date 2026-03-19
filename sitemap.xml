@@ -1,59 +1,34 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
 <?xml version="1.0" encoding="UTF-8"?>
+{% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://sayrolivares.github.io/</loc>
-        <lastmod>2026-03-19</lastmod>
+        <loc>{{ site.url }}/</loc>
+        <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>https://sayrolivares.github.io/author/sayr-olivares.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <loc>{{ site.url }}/author/sayr-olivares.html</loc>
+        <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>https://sayrolivares.github.io/writing.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <loc>{{ site.url }}/writing.html</loc>
+        <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>https://sayrolivares.github.io/coding.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <loc>{{ site.url }}/coding.html</loc>
+        <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>https://sayrolivares.github.io/business.html</loc>
-        <lastmod>2026-03-19</lastmod>
+        <loc>{{ site.url }}/business.html</loc>
+        <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
+    {% for post in post_pages %}
     <url>
-        <loc>https://sayrolivares.github.io/posts/writing/seo-systems-durable.html</loc>
-        <lastmod>2026-03-10</lastmod>
+        <loc>{{ site.url }}{{ post.url }}</loc>
+        <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
     </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/business/process-decisions-scale-operations.html</loc>
-        <lastmod>2026-03-14</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/writing/cs-study-changed-my-leadership.html</loc>
-        <lastmod>2026-02-18</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/business/pricing-automation-cost-of-delay.html</loc>
-        <lastmod>2026-02-24</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/writing/ai-learning-framework.html</loc>
-        <lastmod>2026-01-22</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/business/weekly-operating-review-team-alignment.html</loc>
-        <lastmod>2026-01-30</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/coding/pandas-ecommerce-cleaning-steps.html</loc>
-        <lastmod>2026-03-03</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/coding/zapier-ops-workflow-95-percent.html</loc>
-        <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-        <loc>https://sayrolivares.github.io/posts/coding/aws-infrastructure-decisions.html</loc>
-        <lastmod>2026-01-12</lastmod>
-    </url>
+    {% endfor %}
 </urlset>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include site_head.html %}
+</head>
+<body>
+<main class="site-shell{% if page.shell_class %} {{ page.shell_class }}{% endif %}">
+    {% include site_nav.html %}
+    {{ content }}
+</main>
+{% include site_footer.html %}
+<script src="{{ '/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

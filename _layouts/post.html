@@ -1,0 +1,75 @@
+---
+layout: default
+shell_class: article-shell
+og_type: article
+---
+{% assign category_page_url = '/' | append: page.category_slug | append: '.html' %}
+{% assign category_chip_label = page.category_nav_label | default: page.category_label %}
+{% assign word_source = content
+    | replace: '</p>', ' </p> '
+    | replace: '</li>', ' </li> '
+    | replace: '</h2>', ' </h2> '
+    | replace: '<br>', ' '
+    | replace: '<br/>', ' '
+    | replace: '<br />', ' '
+    | strip_html
+    | strip_newlines %}
+{% assign word_tokens = word_source | split: ' ' %}
+{% assign word_count = 0 %}
+{% for token in word_tokens %}
+    {% unless token == '' %}
+        {% assign word_count = word_count | plus: 1 %}
+    {% endunless %}
+{% endfor %}
+{% assign reading_time = word_count | divided_by: 200 %}
+{% assign reading_time_remainder = word_count | modulo: 200 %}
+{% if reading_time_remainder > 0 %}
+    {% assign reading_time = reading_time | plus: 1 %}
+{% endif %}
+{% if reading_time < 1 %}
+    {% assign reading_time = 1 %}
+{% endif %}
+{% assign related_posts = site.pages | where: 'layout', 'post' | where: 'category_slug', page.category_slug | sort: 'date' | reverse %}
+<article class="post-article">
+    <header class="post-header">
+        <p class="label">{{ page.category_label }}{% if page.topic %} · {{ page.topic }}{% endif %}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="post-byline">
+            By <a href="{{ '/author/sayr-olivares.html' | relative_url }}" rel="author">{{ site.author.name }}</a> ·
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time> · {{ reading_time }} min read
+        </p>
+        {% if page.tags and page.tags.size > 0 %}
+        <ul class="tag-list" aria-label="Post tags">
+            <li><a class="tag-pill" href="{{ category_page_url | relative_url }}">{{ category_chip_label }}</a></li>
+            {% for tag in page.tags %}
+            <li><span class="tag-pill">{{ tag }}</span></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+    {% assign related_count = 0 %}
+    {% capture related_markup %}
+        {% for post in related_posts %}
+            {% if post.url != page.url and related_count < 2 %}
+                {% assign related_count = related_count | plus: 1 %}
+                <article class="related-card">
+                    <p>{{ post.category_label }}{% if post.topic %} · {{ post.topic }}{% endif %}</p>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </article>
+            {% endif %}
+        {% endfor %}
+    {% endcapture %}
+    {% if related_count > 0 %}
+    <section class="related-posts" aria-labelledby="related-title">
+        <h2 id="related-title">Related posts</h2>
+        <div class="related-grid">
+            {{ related_markup }}
+        </div>
+    </section>
+    {% endif %}
+</article>

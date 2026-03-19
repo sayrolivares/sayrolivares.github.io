@@ -1,0 +1,16 @@
+title: Sayr Olivares
+description: Personal portfolio and blog by Sayr Olivares about writing, coding, automation, and practical business thinking.
+url: "https://sayrolivares.github.io"
+timezone: America/Bogota
+markdown: kramdown
+author:
+  name: Sayr Olivares
+  email: sayrolivares@gmail.com
+  twitter: sayrolivares
+  github: sayrolivares
+  linkedin: https://www.linkedin.com/in/sayrolivares
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/picture.jpg
