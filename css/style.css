@@ -279,51 +279,6 @@ h1 {
     line-height: 1.7;
 }
 
-/* Keep CTA buttons wrapping cleanly on smaller widths. */
-.hero-actions {
-    margin-top: 1.4rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-/* ==========================================================================
-   Buttons
-   --------------------------------------------------------------------------
-   Buttons are link-based CTAs, so the styling keeps them looking interactive
-   without removing normal anchor behavior.
-   ========================================================================== */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    border-radius: 999px;
-    padding: 0.64rem 1.02rem;
-    font-size: 0.92rem;
-    font-weight: 700;
-    transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-/* Small lift on hover gives buttons feedback without large motion. */
-.btn:hover {
-    transform: translateY(-1px);
-}
-
-/* Primary action uses the warm accent to draw attention first. */
-.btn-primary {
-    color: #2d1f10;
-    background: var(--accent);
-    box-shadow: 0 8px 16px rgba(238, 170, 97, 0.2);
-}
-
-/* Secondary action still reads as important, but sits one step back. */
-.btn-secondary {
-    color: var(--ink);
-    background: var(--teal);
-    box-shadow: 0 8px 16px rgba(33, 99, 108, 0.22);
-}
-
 /* ==========================================================================
    Profile card
    --------------------------------------------------------------------------
