@@ -6,7 +6,7 @@
    ========================================================================== */
 :root {
     /* Main dark background used by the page gradient. */
-    --bg: #2f4858;
+    --bg: #252525;
 
     /* Warm accent used for calls to action, labels, and hover emphasis. */
     --accent: #eeaa61;
@@ -72,11 +72,9 @@ body {
     font-variation-settings: "wdth" 100;
     color: var(--ink);
 
-    /* Multiple gradient layers create depth without relying on images. */
-    background:
-        radial-gradient(circle at 10% 0%, rgba(238, 170, 97, 0.24), transparent 36%),
-        radial-gradient(circle at 95% 10%, rgba(33, 99, 108, 0.42), transparent 38%),
-        linear-gradient(145deg, #2f4858 0%, #29424f 52%, #233944 100%);
+    /* Use a flat background so the layout feels quieter and the top glow/ring
+       effect is removed entirely. */
+    background: var(--bg);
 }
 
 /* Main page container used by home, category, post, and author pages. */
