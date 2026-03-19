@@ -531,16 +531,21 @@ h1 {
    the main content.
    ========================================================================== */
 .site-footer {
-    width: min(1080px, 100% - 2.4rem);
+    width: min(920px, 100% - 2.4rem);
     margin: 3rem auto 0;
-    padding-top: 1.4rem;
+    padding-top: 1.8rem;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.site-footer__main {
+    padding-bottom: 1.1rem;
 }
 
 .site-footer__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.4rem;
+    gap: 1.1rem 1.25rem;
+    align-items: start;
 }
 
 /* Hidden heading gives the footer a semantic label for assistive tech. */
@@ -558,27 +563,32 @@ h1 {
 
 .site-footer__column {
     min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 0.55rem;
 }
 
 .site-footer__heading {
     margin: 0;
-    font-size: 1.15rem;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
     color: var(--ink);
 }
 
 .site-footer__copy {
-    margin: 0.6rem 0 0;
+    margin: 0;
     color: var(--muted-ink);
     line-height: 1.6;
-    max-width: 30ch;
+    max-width: 28ch;
+    font-size: 0.95rem;
 }
 
 .site-footer__list {
     list-style: none;
-    margin: 0.7rem 0 0;
+    margin: 0;
     padding: 0;
     display: grid;
-    gap: 0.45rem;
+    gap: 0.35rem;
 }
 
 .site-footer__list li {
@@ -589,6 +599,7 @@ h1 {
 .site-footer__utility {
     color: var(--muted-ink);
     text-decoration: none;
+    line-height: 1.5;
 }
 
 .site-footer a:hover,
@@ -598,12 +609,19 @@ h1 {
 
 .site-footer__utility {
     display: inline-flex;
-    margin-top: 0.7rem;
+    margin-top: 0.1rem;
     font-weight: 700;
 }
 
+.site-footer__bottom {
+    margin-top: 0.55rem;
+    padding-top: 0.95rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .site-footer__meta {
-    margin: 1.5rem 0 0;
+    margin: 0;
     color: rgba(211, 221, 215, 0.78);
     font-size: 0.88rem;
 }
@@ -928,6 +946,10 @@ button:focus-visible {
     /* Footer columns stack for better readability on narrow screens. */
     .site-footer__grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.15rem;
+    }
+
+    .site-footer__main {
+        padding-bottom: 0.95rem;
     }
 }
