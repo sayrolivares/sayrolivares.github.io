@@ -1,13 +1,27 @@
 title: Sayr Olivares
 description: Personal portfolio and blog by Sayr Olivares about writing, coding, automation, and practical business thinking.
 url: "https://sayrolivares.github.io"
+lang: en
 timezone: America/Bogota
 markdown: kramdown
+twitter:
+  username: sayrolivares
+  card: summary_large_image
 author:
   name: Sayr Olivares
+  url: https://sayrolivares.github.io/author/sayr-olivares.html
   twitter: sayrolivares
   github: sayrolivares
-  linkedin: https://www.linkedin.com/in/sayrolivares
+  linkedin: https://www.linkedin.com/in/sayrolivares/
+social:
+  name: Sayr Olivares
+  links:
+    - https://x.com/sayrolivares
+    - https://www.linkedin.com/in/sayrolivares/
+    - https://medium.com/@sayrolivares
+    - https://sayrolivares.substack.com/
+plugins:
+  - jekyll-seo-tag
 defaults:
   - scope:
       path: ""
