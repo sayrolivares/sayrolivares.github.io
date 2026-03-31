@@ -225,13 +225,20 @@ body {
    main reading hierarchy before content cards begin.
    ========================================================================== */
 .hero {
-    display: grid;
-    grid-template-columns: 1.45fr 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     min-height: 100vh;
     margin-top: 0;
-    padding: 2rem 0;
+    padding-top: 1cm;
+    padding-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 720px;
 }
 
 /* Category archive pages use a simpler intro spacing than the homepage hero. */
@@ -270,91 +277,192 @@ h3 {
 /* The homepage hero uses a larger clamp than archive page headings. */
 h1 {
     font-size: clamp(2rem, 5vw, 3.3rem);
-    max-width: 19ch;
+    max-width: 100%;
 }
 
 /* Common supporting paragraph style for hero and archive intros. */
 .hero-copy {
-    margin: 1.2rem 0 0;
-    max-width: 50ch;
+    margin: 1.2rem auto 0;
+    max-width: 56ch;
     color: var(--muted-ink);
     line-height: 1.75;
     font-size: 1.1rem;
 }
 
-/* ==========================================================================
-   Profile card
-   --------------------------------------------------------------------------
-   The profile chip lives in the homepage hero and gives quick identity,
-   location, and external links in a compact panel.
-   ========================================================================== */
-.profile-chip {
-    /* Semi-transparent gradient with enhanced contrast and modern styling */
-    background: linear-gradient(135deg, rgba(238, 170, 97, 0.15), rgba(33, 99, 108, 0.45));
-    border: 1px solid rgba(238, 170, 97, 0.3);
-    border-radius: 24px;
-    padding: 1.6rem;
-    box-shadow: 0 20px 50px rgba(12, 24, 34, 0.3), 0 0 1px rgba(238, 170, 97, 0.2);
-    display: grid;
-    grid-template-columns: 84px 1fr;
-    gap: 1rem;
-    align-content: center;
-    backdrop-filter: blur(8px);
-}
-
-/* Fixed avatar sizing prevents the grid from jumping when image ratios vary. */
-.profile-chip img {
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2.5px solid rgba(238, 170, 97, 0.5);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.profile-chip h2 {
-    font-size: 1.35rem;
-}
-
-/* Supporting profile text is intentionally quieter than the name. */
-.profile-chip p {
-    margin: 0.45rem 0 0;
-    color: var(--muted-ink);
-    font-size: 0.92rem;
-    line-height: 1.45;
-}
-
-/* External profile links wrap as pills inside the profile card. */
-.profile-links {
-    list-style: none;
-    margin: 0.8rem 0 0;
-    padding: 0;
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: calc(3rem + 1cm);
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem 0.5rem;
-}
-
-/* Remove any default list spacing artifacts. */
-.profile-links li {
-    margin: 0;
-}
-
-/* Pills are intentionally compact because several need to fit in one card. */
-.profile-links a {
-    color: var(--ink);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 999px;
-    padding: 0.28rem 0.68rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--muted-ink);
+    transition: all 300ms ease;
+    opacity: 0.7;
 }
 
-/* Hover state mirrors the rest of the palette system. */
-.profile-links a:hover {
-    border-color: var(--accent);
+.scroll-indicator:hover {
+    opacity: 1;
     color: var(--accent);
+    transform: translateX(-50%) translateY(4px);
+}
+
+.scroll-text {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.scroll-arrow {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, transparent, currentColor);
+    position: relative;
+}
+
+.scroll-arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid currentColor;
+}
+
+/* Carousel */
+.carousel-container {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carousel-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.2rem;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-item {
+    flex: 0 0 calc(25% - 0.9rem);
+    min-width: 260px;
+    background: linear-gradient(135deg, rgba(238, 170, 97, 0.08), rgba(33, 99, 108, 0.12));
+    border: 1px solid rgba(238, 170, 97, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 300ms ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+    border-color: var(--accent);
+}
+
+.carousel-image {
+    height: 160px;
+    position: relative;
+    background: linear-gradient(135deg, var(--teal), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image[data-category="coding"] {
+    background: linear-gradient(135deg, #21636c, #2a7d89);
+}
+
+.carousel-image[data-category="writing"] {
+    background: linear-gradient(135deg, #eeaa61, #f6c084);
+}
+
+.carousel-image[data-category="business"] {
+    background: linear-gradient(135deg, #5a4a3a, #7d6651);
+}
+
+.carousel-category {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.carousel-content {
+    padding: 1.2rem;
+}
+
+.carousel-content h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.carousel-content p {
+    margin: 0.6rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted-ink);
+    line-height: 1.5;
+}
+
+.carousel-nav {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(238, 170, 97, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 250ms ease;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-nav:hover {
+    background: rgba(238, 170, 97, 0.2);
+    border-color: var(--accent);
+    transform: scale(1.1);
+}
+
+.carousel-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+.carousel-nav svg {
+    width: 24px;
+    height: 24px;
 }
 
 /* ==========================================================================
@@ -913,14 +1021,24 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    /* Tighten the homepage profile card image/text layout. */
-    .profile-chip {
-        grid-template-columns: 72px 1fr;
+    /* Carousel adjustments for mobile */
+    .carousel-container {
+        gap: 0.5rem;
+        margin-top: 2rem;
     }
 
-    .profile-chip img {
-        width: 72px;
-        height: 72px;
+    .carousel-item {
+        flex: 0 0 calc(50% - 0.6rem);
+        min-width: 200px;
+    }
+
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-image {
+        height: 140px;
     }
 
     /* Related content becomes single column to avoid narrow cards. */

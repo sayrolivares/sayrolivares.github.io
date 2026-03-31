@@ -7,10 +7,32 @@ og_description: Notes on Computer Science, research and automation.
 schema_type: person
 og_type: website
 nav_label: Main navigation
+# Edit this list to control exactly which posts appear in the homepage carousel.
+# Use each post page path relative to the project root.
+# The carousel shows posts in the same order they are listed here.
+featured_posts:
+  - posts/coding/aws-infrastructure-decisions.html
+  - posts/writing/ai-learning-framework.html
+  - posts/business/pricing-automation-cost-of-delay.html
+  - posts/coding/pandas-ecommerce-cleaning-steps.html
+  - posts/writing/cs-study-changed-my-leadership.html
+  - posts/business/process-decisions-scale-operations.html
+  - posts/coding/zapier-ops-workflow-95-percent.html
 ---
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+{% comment %}
+Convert the manual featured_posts list above into page objects.
+Only posts listed in featured_posts are rendered in the homepage carousel.
+{% endcomment %}
+{% assign carousel_posts = "" | split: "" %}
+{% for post_path in page.featured_posts %}
+  {% assign found_post = site.pages | where: "path", post_path | first %}
+  {% if found_post %}
+    {% assign carousel_posts = carousel_posts | push: found_post %}
+  {% endif %}
+{% endfor %}
 <section class="hero" id="about">
-    <div>
+    <div class="hero-content">
         <h1>Hi! I'm Sayr Olivares.</h1>
         <p class="hero-copy">
             Tech lead and CS student sharing insights on automation, data science, and software development.
@@ -18,20 +40,39 @@ nav_label: Main navigation
         </p>
     </div>
 
-    <aside class="profile-chip">
-        <img src="{{ '/assets/images/picture.jpg' | relative_url }}" alt="Portrait of Sayr Olivares">
-        <div>
-            <h2>Sayr Olivares</h2>
-            <p>Tech lead · CS student · Open to collaborations</p>
-            <p>Bogota, Colombia</p>
-            <ul class="profile-links" aria-label="Connect links">
-                <li><a href="https://github.com/sayrolivares" target="_blank" rel="noopener">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/sayrolivares" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://x.com/sayrolivares" target="_blank" rel="noopener">X</a></li>
-                <li><a href="https://www.goodreads.com/user/show/124600732-sayr-olivares" target="_blank" rel="noopener">Goodreads</a></li>
-            </ul>
+    <!-- Homepage carousel: cards come from the featured_posts list in the front matter above. -->
+    <div class="carousel-container">
+        <button class="carousel-nav carousel-nav-left" aria-label="Previous posts">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+                {% for post in carousel_posts %}
+                <a href="{{ post.url | relative_url }}" class="carousel-item">
+                    <div class="carousel-image" data-category="{{ post.category_slug }}">
+                        <span class="carousel-category">{{ post.category_nav_label }}</span>
+                    </div>
+                    <div class="carousel-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.description | truncate: 80 }}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
         </div>
-    </aside>
+        <button class="carousel-nav carousel-nav-right" aria-label="Next posts">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
+
+    <a href="#posts" class="scroll-indicator" aria-label="Scroll to content">
+        <span class="scroll-text">Explore</span>
+        <span class="scroll-arrow"></span>
+    </a>
 </section>
 
 <section class="content-section" id="posts" aria-labelledby="posts-title">
@@ -41,6 +82,7 @@ nav_label: Main navigation
         <p class="hero-copy">This list is generated at build time from the post pages and always shows the latest three published articles.</p>
     </div>
     <div class="card-grid" data-post-list="latest">
+        <!-- This section is automatic: it always shows the 3 most recent published posts. -->
         {% for post in post_pages limit: 3 %}
             {% include post_card.html post=post %}
         {% endfor %}
