@@ -48,6 +48,12 @@ og_type: article
         {% endif %}
     </header>
 
+    {% if page.featured_image %}
+    <figure class="post-featured-media">
+        <img src="{{ page.featured_image | relative_url }}" alt="{{ page.featured_image_alt | default: page.title }}">
+    </figure>
+    {% endif %}
+
     <div class="post-content">
         {{ content }}
     </div>

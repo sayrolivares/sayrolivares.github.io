@@ -821,6 +821,21 @@ h1 {
     background: rgba(255, 255, 255, 0.62);
 }
 
+/* Optional featured media sits between the article header and the body copy. */
+.post-featured-media {
+    margin: 1.15rem 0 0;
+}
+
+.post-featured-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    border: 1px solid rgba(21, 40, 47, 0.12);
+    box-shadow: 0 14px 26px rgba(9, 22, 31, 0.14);
+    background: linear-gradient(135deg, rgba(33, 99, 108, 0.08), rgba(238, 170, 97, 0.14));
+}
+
 /* Long-form body copy uses slightly larger type and generous leading. */
 .post-content {
     margin-top: 1rem;
