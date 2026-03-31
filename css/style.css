@@ -227,9 +227,11 @@ body {
 .hero {
     display: grid;
     grid-template-columns: 1.45fr 1fr;
-    gap: 1.4rem;
-    align-items: stretch;
-    margin-top: 0.7rem;
+    gap: 2rem;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 0;
+    padding: 2rem 0;
 }
 
 /* Category archive pages use a simpler intro spacing than the homepage hero. */
@@ -273,10 +275,11 @@ h1 {
 
 /* Common supporting paragraph style for hero and archive intros. */
 .hero-copy {
-    margin: 1rem 0 0;
-    max-width: 60ch;
+    margin: 1.2rem 0 0;
+    max-width: 50ch;
     color: var(--muted-ink);
-    line-height: 1.7;
+    line-height: 1.75;
+    font-size: 1.1rem;
 }
 
 /* ==========================================================================
@@ -286,17 +289,17 @@ h1 {
    location, and external links in a compact panel.
    ========================================================================== */
 .profile-chip {
-    /* Semi-transparent gradient helps the card feel embedded in the hero,
-       rather than looking like a separate white box dropped on top. */
-    background: linear-gradient(155deg, rgba(255, 255, 255, 0.18), rgba(33, 99, 108, 0.55));
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 20px;
-    padding: 1.2rem;
-    box-shadow: var(--shadow);
+    /* Semi-transparent gradient with enhanced contrast and modern styling */
+    background: linear-gradient(135deg, rgba(238, 170, 97, 0.15), rgba(33, 99, 108, 0.45));
+    border: 1px solid rgba(238, 170, 97, 0.3);
+    border-radius: 24px;
+    padding: 1.6rem;
+    box-shadow: 0 20px 50px rgba(12, 24, 34, 0.3), 0 0 1px rgba(238, 170, 97, 0.2);
     display: grid;
     grid-template-columns: 84px 1fr;
-    gap: 0.9rem;
+    gap: 1rem;
     align-content: center;
+    backdrop-filter: blur(8px);
 }
 
 /* Fixed avatar sizing prevents the grid from jumping when image ratios vary. */
@@ -305,7 +308,8 @@ h1 {
     height: 84px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.68);
+    border: 2.5px solid rgba(238, 170, 97, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .profile-chip h2 {
