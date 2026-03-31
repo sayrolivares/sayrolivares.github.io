@@ -38,6 +38,10 @@
     /* Shared shadow token to keep elevation consistent across components. */
     --shadow: 0 24px 40px rgba(12, 24, 34, 0.25);
 
+    /* Desktop sections subtract the shell/header chrome so one section fits
+       within a laptop viewport instead of overflowing past the fold. */
+    --desktop-section-offset: clamp(5.75rem, 7vw, 7rem);
+
     /* Typographic system: serif for headings, sans for interface/body text. */
     --font-title: "EB Garamond", serif;
     --font-body: "Zalando Sans", sans-serif;
@@ -473,6 +477,21 @@ h1 {
    ========================================================================== */
 .content-section {
     margin-top: 2.2rem;
+}
+
+/* On laptop/desktop widths, each top-level page section should occupy at
+   least one screenful after accounting for the shell padding and header. */
+@media (min-width: 981px) {
+    .home-shell > section {
+        min-height: calc(100svh - var(--desktop-section-offset));
+    }
+
+    .home-shell > section:not(.hero) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-block: 2rem;
+    }
 }
 
 /* Standard heading wrapper used before each content grid. */
