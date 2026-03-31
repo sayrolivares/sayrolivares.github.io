@@ -225,19 +225,13 @@ body {
    main reading hierarchy before content cards begin.
    ========================================================================== */
 .hero {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    margin-top: -2cm;
+    margin-top: 0;
     padding: 2rem 0;
-    text-align: center;
-    position: relative;
-}
-
-.hero-content {
-    max-width: 720px;
 }
 
 /* Category archive pages use a simpler intro spacing than the homepage hero. */
@@ -276,65 +270,16 @@ h3 {
 /* The homepage hero uses a larger clamp than archive page headings. */
 h1 {
     font-size: clamp(2rem, 5vw, 3.3rem);
-    max-width: 100%;
+    max-width: 19ch;
 }
 
 /* Common supporting paragraph style for hero and archive intros. */
 .hero-copy {
-    margin: 1.2rem auto 0;
-    max-width: 56ch;
+    margin: 1.2rem 0 0;
+    max-width: 50ch;
     color: var(--muted-ink);
     line-height: 1.75;
     font-size: 1.1rem;
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: calc(3rem + 1cm);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: var(--muted-ink);
-    transition: all 300ms ease;
-    opacity: 0.7;
-}
-
-.scroll-indicator:hover {
-    opacity: 1;
-    color: var(--accent);
-    transform: translateX(-50%) translateY(4px);
-}
-
-.scroll-text {
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.scroll-arrow {
-    width: 1px;
-    height: 32px;
-    background: linear-gradient(to bottom, transparent, currentColor);
-    position: relative;
-}
-
-.scroll-arrow::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 6px solid currentColor;
 }
 
 /* ==========================================================================
@@ -906,6 +851,11 @@ button:focus-visible {
    spacing rhythm and interaction affordances.
    ========================================================================== */
 @media (max-width: 980px) {
+    /* Stack the homepage hero once the side-by-side layout gets cramped. */
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
     /* Article/category cards move from three columns to two. */
     .card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -963,13 +913,14 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    /* Adjust scroll indicator for mobile */
-    .scroll-indicator {
-        bottom: 2rem;
+    /* Tighten the homepage profile card image/text layout. */
+    .profile-chip {
+        grid-template-columns: 72px 1fr;
     }
 
-    .hero-content {
-        padding: 0 1rem;
+    .profile-chip img {
+        width: 72px;
+        height: 72px;
     }
 
     /* Related content becomes single column to avoid narrow cards. */
