@@ -10,7 +10,7 @@ nav_label: Main navigation
 ---
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
 <section class="hero" id="about">
-    <div>
+    <div class="hero-content">
         <h1>Hi! I'm Sayr Olivares.</h1>
         <p class="hero-copy">
             Tech lead and CS student sharing insights on automation, data science, and software development.
@@ -18,20 +18,10 @@ nav_label: Main navigation
         </p>
     </div>
 
-    <aside class="profile-chip">
-        <img src="{{ '/assets/images/picture.jpg' | relative_url }}" alt="Portrait of Sayr Olivares">
-        <div>
-            <h2>Sayr Olivares</h2>
-            <p>Tech lead · CS student · Open to collaborations</p>
-            <p>Bogota, Colombia</p>
-            <ul class="profile-links" aria-label="Connect links">
-                <li><a href="https://github.com/sayrolivares" target="_blank" rel="noopener">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/sayrolivares" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://x.com/sayrolivares" target="_blank" rel="noopener">X</a></li>
-                <li><a href="https://www.goodreads.com/user/show/124600732-sayr-olivares" target="_blank" rel="noopener">Goodreads</a></li>
-            </ul>
-        </div>
-    </aside>
+    <a href="#posts" class="scroll-indicator" aria-label="Scroll to content">
+        <span class="scroll-text">Explore</span>
+        <span class="scroll-arrow"></span>
+    </a>
 </section>
 
 <section class="content-section" id="posts" aria-labelledby="posts-title">
