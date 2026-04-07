@@ -50,7 +50,15 @@ og_type: article
 
     {% if page.featured_image %}
     <figure class="post-featured-media">
-        <img src="{{ page.featured_image | relative_url }}" alt="{{ page.featured_image_alt | default: page.title }}">
+        <img
+                src="{{ page.featured_image | relative_url }}"
+                alt="{{ page.featured_image_alt | default: page.title }}">
+
+        {% if page.featured_image_caption %}
+        <figcaption class="post-caption">
+            {{ page.featured_image_caption }}
+        </figcaption>
+        {% endif %}
     </figure>
     {% endif %}
 

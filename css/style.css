@@ -18,7 +18,7 @@
     --ink: #f5f4ef;
 
     /* Softer text used for secondary copy and supporting labels. */
-    --muted-ink: #d3ddd7;
+    --muted-ink: #555555;
 
     /* Default light card surface used for most content modules. */
     --card: #f8efd9;
@@ -823,7 +823,17 @@ h1 {
 
 /* Optional featured media sits between the article header and the body copy. */
 .post-featured-media {
-    margin: 1.15rem 0 0;
+    margin: 1.15rem auto 2.5rem;
+    max-width: 500px;
+}
+
+/* Image caption visual settings */
+
+.post-caption {
+    font-size: 0.9rem;
+    color: var(--muted-ink);
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 .post-featured-media img {
