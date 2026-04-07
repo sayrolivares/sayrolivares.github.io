@@ -18,7 +18,7 @@
     --ink: #f5f4ef;
 
     /* Softer text used for secondary copy and supporting labels. */
-    --muted-ink: #555555;
+    --muted-ink: #d3ddd7;
 
     /* Default light card surface used for most content modules. */
     --card: #f8efd9;
@@ -831,7 +831,7 @@ h1 {
 
 .post-caption {
     font-size: 0.9rem;
-    color: var(--muted-ink);
+    color: #555555;
     text-align: center;
     margin-top: 0.5rem;
 }
