@@ -229,20 +229,20 @@ body {
    main reading hierarchy before content cards begin.
    ========================================================================== */
 .hero {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
     align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
+    gap: clamp(2rem, 6vw, 4.5rem);
+    min-height: auto;
     margin-top: 0;
     padding-top: 1cm;
-    padding-bottom: 2rem;
-    text-align: center;
+    padding-bottom: 3.5cm;
+    text-align: left;
     position: relative;
 }
 
 .hero-content {
-    max-width: 720px;
+    max-width: 680px;
 }
 
 /* Category archive pages use a simpler intro spacing than the homepage hero. */
@@ -287,186 +287,128 @@ h1 {
 /* Common supporting paragraph style for hero and archive intros. */
 .hero-copy {
     margin: 1.2rem auto 0;
-    max-width: 56ch;
+    max-width: 58ch;
     color: var(--muted-ink);
     line-height: 1.75;
     font-size: 1.1rem;
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: calc(3rem + 1cm);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
+.hero-highlights {
+    list-style: none;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+    max-width: 60ch;
+}
+
+.hero-highlights li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem;
+    align-items: start;
     color: var(--muted-ink);
-    transition: all 300ms ease;
-    opacity: 0.7;
+    line-height: 1.6;
 }
 
-.scroll-indicator:hover {
-    opacity: 1;
+.hero-highlights li::before {
+    content: "";
+    width: 0.62rem;
+    height: 0.62rem;
+    margin-top: 0.45rem;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0.34rem rgba(238, 170, 97, 0.12);
+}
+
+.hero-actions {
+    margin-top: 1.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+}
+
+.hero-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+.hero-action:hover {
+    transform: translateY(-2px);
+}
+
+.hero-action-primary {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 14px 28px rgba(12, 24, 34, 0.18);
+}
+
+.hero-action-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--ink);
+}
+
+.hero-action-secondary:hover {
+    border-color: var(--accent);
     color: var(--accent);
-    transform: translateX(-50%) translateY(4px);
 }
 
-.scroll-text {
-    font-size: 0.82rem;
-    font-weight: 600;
+.hero-aside {
+    width: min(100%, 380px);
+    justify-self: end;
+}
+
+.hero-photo-shell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at top right, rgba(238, 170, 97, 0.2), transparent 44%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow);
+}
+
+.hero-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.hero-proof {
+    margin-top: 1rem;
+    padding: 1rem 1.1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-proof-label {
+    margin: 0;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
-.scroll-arrow {
-    width: 1px;
-    height: 32px;
-    background: linear-gradient(to bottom, transparent, currentColor);
-    position: relative;
-}
-
-.scroll-arrow::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 6px solid currentColor;
-}
-
-/* Carousel */
-.carousel-container {
-    margin-top: 3rem;
-    width: 100%;
-    max-width: 1200px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.carousel-track-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 1.2rem;
-    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.carousel-item {
-    flex: 0 0 calc(25% - 0.9rem);
-    min-width: 260px;
-    background: linear-gradient(135deg, rgba(238, 170, 97, 0.08), rgba(33, 99, 108, 0.12));
-    border: 1px solid rgba(238, 170, 97, 0.2);
-    border-radius: 16px;
-    overflow: hidden;
-    text-decoration: none;
-    transition: all 300ms ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.carousel-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
-    border-color: var(--accent);
-}
-
-.carousel-image {
-    height: 160px;
-    position: relative;
-    background: linear-gradient(135deg, var(--teal), var(--accent));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-image[data-category="coding"] {
-    background: linear-gradient(135deg, #21636c, #2a7d89);
-}
-
-.carousel-image[data-category="writing"] {
-    background: linear-gradient(135deg, #eeaa61, #f6c084);
-}
-
-.carousel-image[data-category="business"] {
-    background: linear-gradient(135deg, #5a4a3a, #7d6651);
-}
-
-.carousel-category {
-    position: absolute;
-    top: 0.8rem;
-    left: 0.8rem;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 0.3rem 0.7rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.carousel-content {
-    padding: 1.2rem;
-}
-
-.carousel-content h3 {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--ink);
-    line-height: 1.3;
-    font-weight: 700;
-}
-
-.carousel-content p {
-    margin: 0.6rem 0 0;
-    font-size: 0.85rem;
+.hero-proof-copy {
+    margin: 0.55rem 0 0;
     color: var(--muted-ink);
-    line-height: 1.5;
-}
-
-.carousel-nav {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 1px solid rgba(238, 170, 97, 0.3);
-    background: rgba(0, 0, 0, 0.3);
-    color: var(--accent);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 250ms ease;
-    backdrop-filter: blur(4px);
-}
-
-.carousel-nav:hover {
-    background: rgba(238, 170, 97, 0.2);
-    border-color: var(--accent);
-    transform: scale(1.1);
-}
-
-.carousel-nav:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: scale(1);
-}
-
-.carousel-nav svg {
-    width: 24px;
-    height: 24px;
+    line-height: 1.65;
+    font-size: 0.95rem;
 }
 
 /* ==========================================================================
@@ -476,21 +418,21 @@ h1 {
    and other repeated card layouts.
    ========================================================================== */
 .content-section {
-    margin-top: 2.2rem;
+    margin-top: 3.5cm;
 }
 
-/* On laptop/desktop widths, each top-level page section should occupy at
-   least one screenful after accounting for the shell padding and header. */
-@media (min-width: 981px) {
-    .home-shell > section {
-        min-height: calc(100svh - var(--desktop-section-offset));
-    }
+.hero + .content-section {
+    margin-top: 1.6cm;
+}
 
+/* Desktop homepage sections use fixed vertical rhythm instead of full-screen
+   height so content blocks stay separated without excessive blank space. */
+@media (min-width: 981px) {
     .home-shell > section:not(.hero) {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding-block: 2rem;
+        justify-content: flex-start;
+        padding-block: 0;
     }
 }
 
@@ -612,32 +554,103 @@ h1 {
    ========================================================================== */
 .project-list {
     display: grid;
-    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
 }
 
 .project-card {
-    background: var(--card-soft);
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 0.9rem;
+    min-height: 100%;
+    padding: 1.35rem 1.4rem 1.3rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--card) 86%, var(--accent) 14%), var(--card));
     color: #112329;
-    border: 1px solid rgba(17, 35, 41, 0.14);
-    border-radius: 16px;
-    padding: 1.05rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(17, 35, 41, 0.14));
+    border-radius: 24px;
+    box-shadow: 0 16px 30px rgba(9, 22, 31, 0.08);
+    overflow: hidden;
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 55%, rgba(17, 35, 41, 0.14));
+    box-shadow: 0 22px 40px rgba(9, 22, 31, 0.12);
+}
+
+.project-kicker {
+    margin: 0;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
 .project-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.32rem;
+    line-height: 1.12;
 }
 
 /* Shared project paragraph spacing. */
 .project-card p {
-    margin: 0.65rem 0 0;
+    margin: 0;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.65;
 }
 
-/* Stack line is slightly bolder to separate tooling from description text. */
-.stack {
+.project-summary {
+    color: rgba(17, 35, 41, 0.82);
+}
+
+.project-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+}
+
+.project-tags li {
+    padding: 0.38rem 0.72rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, rgba(17, 35, 41, 0.14));
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.42);
     color: rgba(17, 35, 41, 0.72);
     font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: auto;
+    padding-top: 0.25rem;
+    color: #16464d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.project-link::after {
+    content: "\2197";
+    font-size: 0.95rem;
+}
+
+.project-link:hover {
+    color: var(--accent);
 }
 
 /* ==========================================================================
@@ -1006,11 +1019,40 @@ button:focus-visible {
     /* Stack the homepage hero once the side-by-side layout gets cramped. */
     .hero {
         grid-template-columns: 1fr;
+        padding-bottom: 2.4rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-copy,
+    .hero-highlights {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-highlights li {
+        text-align: left;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-aside {
+        width: min(100%, 420px);
+        justify-self: center;
     }
 
     /* Article/category cards move from three columns to two. */
     .card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1022,6 +1064,37 @@ button:focus-visible {
 
     .site-footer {
         width: min(1080px, 100% - 1.3rem);
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 0.6rem;
+        padding-bottom: 2rem;
+    }
+
+    .hero h1 {
+        max-width: 12ch;
+        margin-inline: auto;
+    }
+
+    .hero-copy {
+        font-size: 1rem;
+    }
+
+    .hero-highlights {
+        gap: 0.8rem;
+    }
+
+    .hero-action {
+        width: 100%;
+    }
+
+    .content-section {
+        margin-top: 2rem;
+    }
+
+    .hero + .content-section {
+        margin-top: 1.2rem;
     }
 
     /* Intention: stack header pieces vertically on mobile.
@@ -1063,26 +1136,6 @@ button:focus-visible {
     /* Collapse card grids to a single column for comfortable reading. */
     .card-grid {
         grid-template-columns: 1fr;
-    }
-
-    /* Carousel adjustments for mobile */
-    .carousel-container {
-        gap: 0.5rem;
-        margin-top: 2rem;
-    }
-
-    .carousel-item {
-        flex: 0 0 calc(50% - 0.6rem);
-        min-width: 200px;
-    }
-
-    .carousel-nav {
-        width: 40px;
-        height: 40px;
-    }
-
-    .carousel-image {
-        height: 140px;
     }
 
     /* Related content becomes single column to avoid narrow cards. */

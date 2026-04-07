@@ -1,78 +1,48 @@
 ---
 layout: default
 title: Sayr Olivares
-seo_title: Sayr Olivares | Computer Science & Research
-description: Notes on Computer Science, research and automation.
-og_description: Notes on Computer Science, research and automation.
+seo_title: Sayr Olivares | Data Analyst
+description: Writing and projects on data, automation, and how businesses actually run.
+og_description: Writing and projects on data, automation, and how businesses actually run.
 schema_type: person
 og_type: website
 nav_label: Main navigation
 shell_class: home-shell
-# Edit this list to control exactly which posts appear in the homepage carousel.
-# Use each post page path relative to the project root.
-# The carousel shows posts in the same order they are listed here.
-featured_posts:
-  - posts/coding/aws-infrastructure-decisions.html
-  - posts/writing/ai-learning-framework.html
-  - posts/business/pricing-automation-cost-of-delay.html
-  - posts/coding/pandas-ecommerce-cleaning-steps.html
-  - posts/writing/cs-study-changed-my-leadership.html
-  - posts/business/process-decisions-scale-operations.html
-  - posts/coding/zapier-ops-workflow-95-percent.html
 ---
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
-{% comment %}
-Convert the manual featured_posts list above into page objects.
-Only posts listed in featured_posts are rendered in the homepage carousel.
-{% endcomment %}
-{% assign carousel_posts = "" | split: "" %}
-{% for post_path in page.featured_posts %}
-  {% assign found_post = site.pages | where: "path", post_path | first %}
-  {% if found_post %}
-    {% assign carousel_posts = carousel_posts | push: found_post %}
-  {% endif %}
-{% endfor %}
 <section class="hero" id="about">
     <div class="hero-content">
-        <h1>Hi! I'm Sayr Olivares.</h1>
+        <p class="label">Data Analyst</p>
+        <h1>I'm Sayr Olivares. I turn messy business data into clear decisions.</h1>
         <p class="hero-copy">
-            Tech lead and CS student sharing insights on automation, data and computer science.
+            I'm focused on operational reporting, growth insights, and practical automation. I use various tools such as Python, Pandas, and business context to turn raw information into analysis teams can actually use.
         </p>
-    </div>
-
-    <!-- Homepage carousel: cards come from the featured_posts list in the front matter above. -->
-    <div class="carousel-container">
-        <button class="carousel-nav carousel-nav-left" aria-label="Previous posts">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-        </button>
-        <div class="carousel-track-wrapper">
-            <div class="carousel-track">
-                {% for post in carousel_posts %}
-                <a href="{{ post.url | relative_url }}" class="carousel-item">
-                    <div class="carousel-image" data-category="{{ post.category_slug }}">
-                        <span class="carousel-category">{{ post.category_nav_label }}</span>
-                    </div>
-                    <div class="carousel-content">
-                        <h3>{{ post.title }}</h3>
-                        <p>{{ post.description | truncate: 80 }}</p>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
+        <ul class="hero-highlights" aria-label="Core strengths">
+            <li>Builds repeatable reporting workflows for operations, growth, and performance tracking.</li>
+            <li>Finds useful patterns in noisy datasets and explains them in plain language.</li>
+            <li>Brings a systems mindset from automation and technical leadership into analysis work.</li>
+        </ul>
+        <div class="hero-actions">
+            <a class="hero-action hero-action-primary" href="#projects">View projects</a>
+            <a class="hero-action hero-action-secondary" href="{{ site.author.linkedin }}" target="_blank" rel="noopener">Connect on LinkedIn</a>
         </div>
-        <button class="carousel-nav carousel-nav-right" aria-label="Next posts">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
-        </button>
     </div>
 
-    <a href="#posts" class="scroll-indicator" aria-label="Scroll to content">
-        <span class="scroll-text">Explore</span>
-        <span class="scroll-arrow"></span>
-    </a>
+    <div class="hero-aside">
+        <div class="hero-photo-shell">
+            <img
+                class="hero-photo"
+                src="{{ '/assets/images/picture.jpg' | relative_url }}"
+                alt="Portrait of Sayr Olivares"
+                width="2852"
+                height="2852"
+            >
+        </div>
+        <div class="hero-proof">
+            <p class="hero-proof-label">What you can expect here</p>
+            <p class="hero-proof-copy">Case studies, lightweight data projects, and practical notes on reporting, process, and analysis.</p>
+        </div>
+    </div>
 </section>
 
 <section class="content-section" id="posts" aria-labelledby="posts-title">
@@ -91,26 +61,34 @@ Only posts listed in featured_posts are rendered in the homepage carousel.
 <section class="content-section" id="projects" aria-labelledby="projects-title">
     <div class="section-head">
         <p class="label">Portfolio</p>
-        <h2 id="projects-title">Selected projects</h2>
+        <h2 id="projects-title">Selected data projects</h2>
     </div>
 
     <div class="project-list">
         <article class="project-card">
-            <h3>SEO content engine for healthcare startup</h3>
-            <p>Owned strategy, production, and reporting from keyword mapping to monthly growth reviews.</p>
-            <p class="stack">Stack: GA4, Search Console, Notion, editorial SOPs</p>
+            <p class="project-kicker">Exploratory analysis</p>
+            <h3>Datacademy</h3>
+            <p class="project-summary">A foundational notebook from data school focused on exploring datasets, structuring analysis, and turning open questions into a reproducible workflow.</p>
+            <ul class="project-tags" aria-label="Datacademy tools">
+                <li>Python</li>
+                <li>Pandas</li>
+                <li>Deepnote</li>
+                <li>EDA</li>
+            </ul>
+            <a class="project-link" href="https://deepnote.com/app/sayrolivares/Datacademy-fc2f5c3e-d34e-4483-a1fa-b57c7b1f5b5b?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=data-app&utm_content=fc2f5c3e-d34e-4483-a1fa-b57c7b1f5b5b" target="_blank" rel="noopener">View notebook</a>
         </article>
 
         <article class="project-card">
-            <h3>Ops automation migration</h3>
-            <p>Rebuilt legacy manual flows with integrated tools and reduced repetitive work across teams.</p>
-            <p class="stack">Stack: Zapier, Make, Airtable, Slack</p>
-        </article>
-
-        <article class="project-card">
-            <h3>Learning lab for data science</h3>
-            <p>A personal repository of mini projects for statistics, visualizations, and machine learning practice.</p>
-            <p class="stack">Stack: Python, Pandas, Matplotlib, Jupyter</p>
+            <p class="project-kicker">Economic analysis</p>
+            <h3>Economic analysis with Pandas</h3>
+            <p class="project-summary">An exploratory notebook using a FRED object to import unemployment data, compare indicators, and examine economic relationships through a clean Pandas workflow.</p>
+            <ul class="project-tags" aria-label="Economic analysis tools">
+                <li>Python</li>
+                <li>Pandas</li>
+                <li>FRED API</li>
+                <li>Macro data</li>
+            </ul>
+            <a class="project-link" href="https://deepnote.com/app/sayrolivares/Economic-analysis-with-pandas-304804f2-cc51-42c1-84fd-e7eb225772fd?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=data-app&utm_content=304804f2-cc51-42c1-84fd-e7eb225772fd" target="_blank" rel="noopener">View notebook</a>
         </article>
     </div>
 </section>
