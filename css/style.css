@@ -648,6 +648,61 @@ h1 {
     color: #f6c084;
 }
 
+.post-filter-panel {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.post-filter-label {
+    margin: 0;
+    color: var(--muted-ink);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.post-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.post-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted-ink);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.post-filter-chip:hover {
+    border-color: rgba(238, 170, 97, 0.32);
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.post-filter-chip.is-active {
+    border-color: rgba(238, 170, 97, 0.38);
+    background: rgba(238, 170, 97, 0.12);
+    color: var(--accent);
+}
+
+.post-filter-status,
+.post-filter-empty {
+    margin: 0;
+    color: var(--muted-ink);
+    font-size: 0.95rem;
+}
+
 .post-archive-list {
     display: grid;
     gap: 1rem;
@@ -674,6 +729,10 @@ h1 {
 
 [data-post-list="archive"] .entry-description {
     max-width: 58ch;
+}
+
+[data-post-list="archive"] .entry-card[hidden] {
+    display: none;
 }
 
 /* ==========================================================================

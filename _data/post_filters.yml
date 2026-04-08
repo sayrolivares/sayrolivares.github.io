@@ -1,0 +1,29 @@
+# Source of truth for the categories and tags used on blog posts.
+# Reuse these labels and slugs in post front matter so archive filters stay consistent.
+categories:
+  - slug: writing
+    label: Writing
+  - slug: business
+    label: Business
+  - slug: coding
+    label: Coding
+
+tags:
+  - slug: ai
+    label: AI
+  - slug: learning
+    label: Learning
+  - slug: career
+    label: Career
+  - slug: leadership
+    label: Leadership
+  - slug: computer-science
+    label: Computer Science
+  - slug: operations
+    label: Operations
+  - slug: team-design
+    label: Team Design
+  - slug: automation
+    label: Automation
+  - slug: zapier
+    label: Zapier

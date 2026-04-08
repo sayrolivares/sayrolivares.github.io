@@ -6,8 +6,12 @@
 {% endif %}
 {% assign image_src = raw_image_src | relative_url %}
 {% assign image_alt = include.post.featured_image_alt | default: include.post.title %}
+{% capture filter_terms %}{{ include.post.category_slug | default: "" | downcase }}{% for tag in include.post.tags %}|{{ tag | slugify }}{% endfor %}{% endcapture %}
 
-<article class="entry-card{% if is_featured_card %} entry-card--featured{% endif %}">
+<article
+    class="entry-card{% if is_featured_card %} entry-card--featured{% endif %}"
+    data-post-filter-terms="{{ filter_terms | strip }}"
+>
     {% if is_featured_card %}
     <a class="entry-media" href="{{ include.post.url | relative_url }}" aria-label="{{ include.post.title }}">
         <img

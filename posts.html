@@ -16,13 +16,27 @@ shell_class: article-shell
     <p class="hero-copy">A complete archive of writing on data, systems, operations, and the practical side of technical work.</p>
 </section>
 
-<section class="content-section post-archive" aria-labelledby="all-posts-title">
+<section class="content-section post-archive" aria-labelledby="all-posts-title" data-post-archive>
     <div class="section-head">
         <h2 id="all-posts-title">Latest to earliest</h2>
+    </div>
+    <div class="post-filter-panel" aria-labelledby="post-filters-title">
+        <p class="post-filter-label" id="post-filters-title">Filter by category or tag</p>
+        <div class="post-filter-list" role="group" aria-labelledby="post-filters-title">
+            <button class="post-filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            {% for category in site.data.post_filters.categories %}
+            <button class="post-filter-chip" type="button" data-filter="{{ category.slug }}" aria-pressed="false">{{ category.label }}</button>
+            {% endfor %}
+            {% for tag in site.data.post_filters.tags %}
+            <button class="post-filter-chip" type="button" data-filter="{{ tag.slug }}" aria-pressed="false">{{ tag.label }}</button>
+            {% endfor %}
+        </div>
+        <p class="post-filter-status" data-post-filter-status aria-live="polite">Showing {{ post_pages | size }} posts</p>
     </div>
     <div class="post-archive-list" data-post-list="archive">
         {% for post in post_pages %}
             {% include post_card.html post=post variant="featured" %}
         {% endfor %}
     </div>
+    <p class="post-filter-empty" data-post-filter-empty hidden>No posts match the selected filters.</p>
 </section>
