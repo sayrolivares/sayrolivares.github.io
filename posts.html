@@ -1,0 +1,28 @@
+---
+layout: default
+title: Posts | Sayr Olivares
+seo_title: Posts | Sayr Olivares
+description: All posts by Sayr Olivares on data, operations, systems, and practical technical work.
+og_description: All posts by Sayr Olivares on data, operations, systems, and practical technical work.
+schema_type: collection
+og_type: website
+nav_label: Posts navigation
+shell_class: article-shell
+---
+{% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+<section class="page-intro">
+    <p class="label">Posts</p>
+    <h1 class="page-title">All published posts.</h1>
+    <p class="hero-copy">A complete archive of writing on data, systems, operations, and the practical side of technical work.</p>
+</section>
+
+<section class="content-section post-archive" aria-labelledby="all-posts-title">
+    <div class="section-head">
+        <h2 id="all-posts-title">Latest to earliest</h2>
+    </div>
+    <div class="post-archive-list" data-post-list="archive">
+        {% for post in post_pages %}
+            {% include post_card.html post=post variant="featured" %}
+        {% endfor %}
+    </div>
+</section>

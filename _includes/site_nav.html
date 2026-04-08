@@ -1,7 +1,5 @@
 {% assign home_url = '/' | relative_url %}
-{% assign writing_url = '/writing.html' | relative_url %}
-{% assign coding_url = '/coding.html' | relative_url %}
-{% assign business_url = '/business.html' | relative_url %}
+{% assign posts_url = '/posts.html' | relative_url %}
 {% if page.url == '/' %}
   {% assign projects_href = '#projects' %}
   {% assign about_href = '#about' %}
@@ -19,14 +17,7 @@
     </button>
     <nav id="site-nav" aria-label="{{ page.nav_label | default: 'Main navigation' }}">
         <a href="{{ home_url }}">Home</a>
-        <details class="nav-dropdown">
-            <summary>Posts</summary>
-            <div class="dropdown-menu">
-                <a href="{{ writing_url }}">Writing</a>
-                <a href="{{ coding_url }}">Coding</a>
-                <a href="{{ business_url }}">Business</a>
-            </div>
-        </details>
+        <a href="{{ posts_url }}">Posts</a>
         <a href="{{ projects_href }}">Projects</a>
         <a href="{{ about_href }}">About</a>
     </nav>
