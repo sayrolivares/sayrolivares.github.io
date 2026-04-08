@@ -4,30 +4,31 @@ permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+{% assign production_url = "https://sayrolivares.github.io" %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>{{ site.url }}/</loc>
+        <loc>{{ production_url }}/</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>{{ site.url }}/author/sayr-olivares.html</loc>
+        <loc>{{ production_url }}/author/sayr-olivares.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>{{ site.url }}/writing.html</loc>
+        <loc>{{ production_url }}/writing.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>{{ site.url }}/coding.html</loc>
+        <loc>{{ production_url }}/coding.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     <url>
-        <loc>{{ site.url }}/business.html</loc>
+        <loc>{{ production_url }}/business.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     </url>
     {% for post in post_pages %}
     <url>
-        <loc>{{ site.url }}{{ post.url }}</loc>
+        <loc>{{ production_url }}{{ post.url }}</loc>
         <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
     </url>
     {% endfor %}

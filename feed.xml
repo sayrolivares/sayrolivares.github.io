@@ -4,10 +4,11 @@ permalink: /feed.xml
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+{% assign production_url = "https://sayrolivares.github.io" %}
 <rss version="2.0">
     <channel>
         <title>{{ site.title }} - Writing and Coding Blog</title>
-        <link>{{ site.url }}/</link>
+        <link>{{ production_url }}/</link>
         <description>{{ site.description }}</description>
         <language>en-us</language>
         <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
@@ -15,8 +16,8 @@ permalink: /feed.xml
         {% for post in post_pages %}
         <item>
             <title>{{ post.title }}</title>
-            <link>{{ site.url }}{{ post.url }}</link>
-            <guid>{{ site.url }}{{ post.url }}</guid>
+            <link>{{ production_url }}{{ post.url }}</link>
+            <guid>{{ production_url }}{{ post.url }}</guid>
             <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
             <description>{{ post.og_description | default: post.description }}</description>
         </item>

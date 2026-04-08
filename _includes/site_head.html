@@ -1,8 +1,51 @@
+{% assign production_url = "https://sayrolivares.github.io" %}
+{% assign page_title = page.seo_title | default: page.title | default: site.title %}
+{% assign page_description = page.og_description | default: page.description | default: site.description %}
+{% assign page_type = page.og_type | default: "website" %}
+{% assign schema_type = page.schema_type | default: "WebPage" %}
+{% assign page_path = page.url | default: "/" %}
+{% assign canonical_url = production_url | append: page_path | replace: "/index.html", "/" %}
+{% assign page_image = page.featured_image | default: page.image | default: "/assets/images/picture.jpg" %}
+{% if page_image contains "://" %}
+  {% assign absolute_image = page_image %}
+{% else %}
+  {% assign absolute_image = production_url | append: page_image %}
+{% endif %}
 <meta charset="UTF-8">
+<title>{{ page_title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="{{ page_description }}">
+<meta name="author" content="{{ site.author.name }}">
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:locale" content="{{ site.lang | default: 'en' }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:image" content="{{ absolute_image }}">
+<meta property="og:type" content="{{ page_type }}">
+<meta name="twitter:card" content="{{ site.twitter.card | default: 'summary_large_image' }}">
+<meta property="twitter:title" content="{{ page_title }}">
+<meta property="twitter:image" content="{{ absolute_image }}">
+<meta name="twitter:site" content="@{{ site.author.twitter }}">
+<meta name="twitter:creator" content="@{{ site.author.twitter }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{ schema_type | jsonify }},
+  "headline": {{ page_title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "image": {{ absolute_image | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }}
+  }
+}
+</script>
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Blog RSS" href="{{ '/feed.xml' | relative_url }}">
-
 <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
 <link rel="icon" type="image/png" href="{{ '/assets/icons/Favicon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
