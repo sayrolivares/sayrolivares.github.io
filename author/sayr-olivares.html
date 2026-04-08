@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sayr Olivares - Author Page
-description: Author page for Sayr Olivares. Writing and coding posts on SEO, automation, cloud, and data science.
+description: Author page for Sayr Olivares. Recent posts and profiles across Twitter, LinkedIn, GitHub, Substack, Medium, and Dev.to.
 og_type: profile
 schema_type: collection
 nav_label: Author navigation
@@ -14,14 +14,26 @@ shell_class: article-shell
         <div>
             <p class="label">Author</p>
             <h1>Sayr Olivares</h1>
-            <p>Tech lead and computer science student writing about SEO systems, automation design, cloud decisions, and practical data workflows.</p>
+            <p>Data analyst and tech lead writing about operations, reporting, automation, and practical technical work.</p>
         </div>
     </header>
 
+    <section class="author-links" aria-labelledby="author-links-title">
+        <h2 id="author-links-title">Profiles</h2>
+        <div class="author-social-list">
+            <a class="author-social-link social-icon-link social-icon-link--twitter" href="https://twitter.com/sayrolivares" target="_blank" rel="noopener"><span class="social-icon-fallback" aria-hidden="true">T</span><span class="sr-only">Twitter</span></a>
+            <a class="author-social-link social-icon-link social-icon-link--linkedin" href="{{ site.author.linkedin }}" target="_blank" rel="noopener"><span class="social-icon-fallback" aria-hidden="true">in</span><span class="sr-only">LinkedIn</span></a>
+            <a class="author-social-link social-icon-link social-icon-link--github" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener"><span class="social-icon-fallback" aria-hidden="true">GH</span><span class="sr-only">GitHub</span></a>
+            <a class="author-social-link social-icon-link social-icon-link--substack" href="https://sayrolivares.substack.com/" target="_blank" rel="noopener"><span class="social-icon-fallback" aria-hidden="true">S</span><span class="sr-only">Substack</span></a>
+            <a class="author-social-link social-icon-link social-icon-link--medium" href="https://medium.com/@sayrolivares" target="_blank" rel="noopener"><span class="social-icon-fallback" aria-hidden="true">M</span><span class="sr-only">Medium</span></a>
+            <a class="author-social-link social-icon-link social-icon-link--devto" href="https://dev.to/sayrolivares" target="_blank" rel="noopener"><span class="social-icon-fallback" aria-hidden="true">D</span><span class="sr-only">Dev.to</span></a>
+        </div>
+    </section>
+
     <section class="author-posts" aria-labelledby="latest-posts">
-        <h2 id="latest-posts">Published posts</h2>
+        <h2 id="latest-posts">Latest posts</h2>
         <div class="author-post-list">
-            {% for post in post_pages %}
+            {% for post in post_pages limit: 3 %}
             <article class="author-post">
                 <p>
                     <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
