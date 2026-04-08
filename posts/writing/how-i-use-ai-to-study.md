@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "My current framework for learning AI without getting distracted"
-description: "A practical learning framework for AI focused on fundamentals, build cycles, and output-based milestones instead of trend chasing."
-og_description: "A practical framework for learning AI through fundamentals and output-based milestones."
-date: 2026-01-22
+title: "How I use AI to study"
+description: "Tools I use to study."
+og_description: "Tools I use to study."
+date: 2026-04-08
 category_slug: writing
 category_label: "Writing"
 category_nav_label: "Writing"
