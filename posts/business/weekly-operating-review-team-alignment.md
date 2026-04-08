@@ -3,7 +3,7 @@ layout: post
 title: "The weekly operating review I use to keep teams aligned without wasting time"
 description: "A simple weekly operating review format for alignment, blockers, decision tracking."
 og_description: "A simple weekly operating review format for alignment, blockers, and decision tracking."
-date: 2026-04-1 
+date: 2026-04-01 
 category_slug: business
 category_label: "Business"
 category_nav_label: "Business"
