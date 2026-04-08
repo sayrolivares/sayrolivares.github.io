@@ -8,7 +8,7 @@ category_slug: business
 category_label: "Business"
 category_nav_label: "Business"
 topic: "Operations"
-featured_image: assets/images/posts/The_process_decisions_that_actually_help_a_small_team_scale_operations.png
+featured_image: /assets/images/posts/The_process_decisions_that_actually_help_a_small_team_scale_operations.png
 featured_image_alt: Bulblight, to-do list and a gear sketched together.
 featured_image_caption: AI-generated sketch.
 tags:

@@ -1,4 +1,32 @@
-<article class="entry-card">
+{% assign is_featured_card = include.variant == "featured" %}
+{% assign category_name = include.post.category_nav_label | default: include.post.category_label %}
+{% assign raw_image_src = include.post.featured_image | default: "/assets/images/picture.jpg" %}
+{% if raw_image_src == "" %}
+    {% assign raw_image_src = "/assets/images/picture.jpg" %}
+{% endif %}
+{% assign image_src = raw_image_src | relative_url %}
+{% assign image_alt = include.post.featured_image_alt | default: include.post.title %}
+
+<article class="entry-card{% if is_featured_card %} entry-card--featured{% endif %}">
+    {% if is_featured_card %}
+    <a class="entry-media" href="{{ include.post.url | relative_url }}" aria-label="{{ include.post.title }}">
+        <img
+            src="{{ image_src }}"
+            alt="{{ image_alt }}"
+            decoding="async"
+        >
+    </a>
+    <div class="entry-body">
+        <p class="entry-meta">
+            {% if category_name %}<span>{{ category_name }}</span>{% endif %}
+            <span class="entry-meta-separator">&bull;</span>
+            <time datetime="{{ include.post.date | date: '%Y-%m-%d' }}">{{ include.post.date | date: "%b %-d, %Y" }}</time>
+        </p>
+        <h3><a class="entry-title-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+        <p class="entry-description">{{ include.post.description }}</p>
+        <a class="entry-link" href="{{ include.post.url | relative_url }}">Read article</a>
+    </div>
+    {% else %}
     <p class="entry-meta">
         <time datetime="{{ include.post.date | date: '%Y-%m-%d' }}">{{ include.post.date | date: "%B %-d, %Y" }}</time>
         {% if include.post.category_label %} · {{ include.post.category_label }}{% endif %}
@@ -7,4 +35,5 @@
     <h3><a class="entry-title-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
     <p>{{ include.post.description }}</p>
     <a class="entry-link" href="{{ include.post.url | relative_url }}">Read article</a>
+    {% endif %}
 </article>

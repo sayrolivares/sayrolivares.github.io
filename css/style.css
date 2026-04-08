@@ -586,6 +586,42 @@ h1 {
     flex-direction: column;
 }
 
+.entry-card--featured {
+    padding: 0;
+    overflow: hidden;
+}
+
+.entry-media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(190px, 22vw, 245px);
+    background: linear-gradient(135deg, rgba(238, 170, 97, 0.12), rgba(33, 99, 108, 0.16));
+    line-height: 0;
+}
+
+.entry-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 260ms ease;
+}
+
+.entry-card--featured:hover .entry-media img {
+    transform: scale(1.03);
+}
+
+.entry-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.1rem 1.1rem 1.2rem;
+    min-height: 100%;
+}
+
 /* Meta line carries date + article label and stays visually lighter than the title. */
 .entry-meta {
     margin: 0;
@@ -596,9 +632,26 @@ h1 {
     text-transform: uppercase;
 }
 
+.entry-card--featured .entry-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.entry-meta-separator {
+    opacity: 0.7;
+}
+
 .entry-card h3 {
     margin-top: 0.55rem;
     font-size: 1.15rem;
+}
+
+.entry-card--featured h3 {
+    margin-top: 0;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.15;
 }
 
 /* Generic paragraph spacing inside entry cards. */
@@ -607,6 +660,14 @@ h1 {
     color: rgba(33, 53, 63, 0.85);
     line-height: 1.55;
     font-size: 0.94rem;
+}
+
+.entry-card--featured p {
+    margin: 0;
+}
+
+.entry-description {
+    max-width: 30ch;
 }
 
 /* Entry titles are links, but they should read like editorial headlines first. */
@@ -631,6 +692,10 @@ h1 {
     text-decoration: none;
 }
 
+.entry-card--featured .entry-link {
+    padding-top: 0.35rem;
+}
+
 .entry-link:hover {
     color: #12363b;
 }
@@ -644,12 +709,25 @@ h1 {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
+[data-post-list="latest"] .entry-card--featured {
+    border-radius: 26px;
+}
+
+[data-post-list="latest"] .entry-media {
+    min-height: clamp(200px, 24vw, 260px);
+    border-bottom: 1px solid rgba(238, 170, 97, 0.08);
+}
+
 [data-post-list="latest"] .entry-meta {
     color: rgba(238, 170, 97, 0.84);
 }
 
 [data-post-list="latest"] .entry-card p {
     color: rgba(245, 244, 239, 0.76);
+}
+
+[data-post-list="latest"] .entry-description {
+    color: rgba(245, 244, 239, 0.78);
 }
 
 [data-post-list="latest"] .entry-title-link {
@@ -1341,6 +1419,10 @@ button:focus-visible {
     /* Collapse card grids to a single column for comfortable reading. */
     .card-grid {
         grid-template-columns: 1fr;
+    }
+
+    .entry-media {
+        min-height: 215px;
     }
 
     .entry-card,

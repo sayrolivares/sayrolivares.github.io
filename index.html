@@ -53,7 +53,7 @@ shell_class: home-shell
     <div class="card-grid" data-post-list="latest">
         <!-- This section is automatic: it always shows the 3 most recent published posts. -->
         {% for post in post_pages limit: 3 %}
-            {% include post_card.html post=post %}
+            {% include post_card.html post=post variant="featured" %}
         {% endfor %}
     </div>
 </section>

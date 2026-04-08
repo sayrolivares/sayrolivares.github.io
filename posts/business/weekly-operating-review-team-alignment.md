@@ -8,7 +8,7 @@ category_slug: business
 category_label: "Business"
 category_nav_label: "Business"
 topic: "Leadership"
-featured_image: assets/images/posts/The_weekly_operating_review.png
+featured_image: /assets/images/posts/The_weekly_operating_review.png
 featured_image_alt: A picture describing the process of the weekly operating review, a meeting with a list of items to discuss.
 featured_image_caption: AI-generated sketch.
 tags:
