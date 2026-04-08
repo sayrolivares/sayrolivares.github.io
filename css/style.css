@@ -314,6 +314,31 @@ img {
 }
 
 /* ==========================================================================
+   Caption for images in HTML inside Markdown
+   --------------------------------------------------------------------------
+   Every image used inside (not a featured image) a .md file that needs a
+   caption just below it this is exactly what it does.
+   ========================================================================== */
+
+.post-image {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.post-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.post-image figcaption {
+    font-size: 0.9rem;
+    color: #555555;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
    Hero and top-level page intros
    --------------------------------------------------------------------------
    Home uses `.hero`; category archives use `.page-intro`. Both establish the
@@ -931,7 +956,7 @@ h1 {
     max-width: 500px;
 }
 
-/* Image caption visual settings */
+/* Featured image caption visual settings */
 
 .post-caption {
     font-size: 0.9rem;
