@@ -11,7 +11,13 @@
 {% endif %}
 <header class="topbar">
     <p class="brand"><a href="{{ home_url }}">{{ site.title }}</a></p>
-    <nav aria-label="{{ page.nav_label | default: 'Main navigation' }}">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav id="site-nav" aria-label="{{ page.nav_label | default: 'Main navigation' }}">
         <a href="{{ home_url }}">Home</a>
         <details class="nav-dropdown">
             <summary>Posts</summary>

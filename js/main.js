@@ -1,4 +1,5 @@
 const desktopHoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+const mobileNavQuery = window.matchMedia("(max-width: 980px)");
 
 function initNavDropdown(dropdown) {
     const summary = dropdown.querySelector("summary");
@@ -60,6 +61,27 @@ function initNavDropdown(dropdown) {
 }
 
 document.querySelectorAll(".nav-dropdown").forEach(initNavDropdown);
+
+const topbar = document.querySelector(".topbar");
+const navToggle = document.querySelector(".nav-toggle");
+
+if (topbar && navToggle) {
+    const setNavOpen = (open) => {
+        topbar.classList.toggle("nav-open", open);
+        navToggle.setAttribute("aria-expanded", String(open));
+    };
+
+    navToggle.addEventListener("click", () => {
+        setNavOpen(!topbar.classList.contains("nav-open"));
+    });
+
+    mobileNavQuery.addEventListener("change", (event) => {
+        if (event.matches) return;
+        setNavOpen(false);
+    });
+
+    setNavOpen(false);
+}
 
 // Carousel behavior only: the homepage decides which posts appear by editing
 // the featured_posts list in index.html.
