@@ -38,10 +38,6 @@
     /* Shared shadow token to keep elevation consistent across components. */
     --shadow: 0 24px 40px rgba(12, 24, 34, 0.25);
 
-    /* Desktop sections subtract the shell/header chrome so one section fits
-       within a laptop viewport instead of overflowing past the fold. */
-    --desktop-section-offset: clamp(5.75rem, 7vw, 7rem);
-
     /* Typographic system: serif for headings, sans for interface/body text. */
     --font-title: "EB Garamond", serif;
     --font-body: "Zalando Sans", sans-serif;
@@ -305,6 +301,17 @@ h3 {
 h1 {
     font-size: clamp(2rem, 5vw, 3.3rem);
     max-width: 100%;
+}
+
+.hero-name-link,
+.hero-name-link:visited {
+    color: color-mix(in srgb, var(--accent) 72%, white 28%);
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.hero-name-link:hover {
+    color: color-mix(in srgb, var(--accent) 84%, white 16%);
 }
 
 /* Common supporting paragraph style for hero and archive intros. */
@@ -894,14 +901,6 @@ h1 {
     color: var(--ink);
 }
 
-.site-footer__copy {
-    margin: 0;
-    color: var(--muted-ink);
-    line-height: 1.6;
-    max-width: 28ch;
-    font-size: 0.95rem;
-}
-
 .site-footer__list {
     list-style: none;
     margin: 0;
@@ -930,39 +929,6 @@ h1 {
     display: inline-flex;
     margin-top: 0.1rem;
     font-weight: 700;
-}
-
-.site-footer__socials {
-    list-style: none;
-    margin: 0.2rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-}
-
-.site-footer__socials li {
-    margin: 0;
-}
-
-.site-footer__socials a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
-    transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
-}
-
-.site-footer__socials a:hover {
-    color: var(--accent);
-    border-color: rgba(238, 170, 97, 0.32);
-    background: rgba(238, 170, 97, 0.08);
-    transform: translateY(-1px);
 }
 
 .site-footer__bottom {
