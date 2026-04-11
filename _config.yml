@@ -31,3 +31,7 @@ defaults:
       path: ""
     values:
       image: /assets/images/picture.jpg
+  - scope:
+      path: "posts"
+    values:
+      schema_type: BlogPosting

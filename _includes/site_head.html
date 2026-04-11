@@ -31,9 +31,46 @@
 <meta name="twitter:site" content="@{{ site.author.twitter }}">
 <meta name="twitter:creator" content="@{{ site.author.twitter }}">
 <script type="application/ld+json">
+{% if schema_type == "BlogPosting" %}
 {
   "@context": "https://schema.org",
-  "@type": {{ schema_type | jsonify }},
+  "@type": "BlogPosting",
+  "headline": {{ page_title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "image": {{ absolute_image | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }}
+  }
+}
+{% elsif schema_type == "ProfilePage" %}
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "headline": {{ page_title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "image": {{ absolute_image | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "mainEntity": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }},
+    "sameAs": {{ site.social.links | jsonify }}
+  }
+}
+{% elsif schema_type == "CollectionPage" %}
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
   "headline": {{ page_title | jsonify }},
   "description": {{ page_description | jsonify }},
   "image": {{ absolute_image | jsonify }},
@@ -44,6 +81,35 @@
     "url": {{ site.author.url | jsonify }}
   }
 }
+{% elsif schema_type == "WebSite" %}
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "image": {{ absolute_image | jsonify }},
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }}
+  }
+}
+{% else %}
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "headline": {{ page_title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "image": {{ absolute_image | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.author.url | jsonify }}
+  }
+}
+{% endif %}
 </script>
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Blog RSS" href="{{ '/feed.xml' | relative_url }}">
 <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
