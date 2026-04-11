@@ -4,9 +4,9 @@ permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
-{% assign static_pages = site.pages | where_exp: "page", "page.layout != 'post' and page.sitemap != false and page.url != '/sitemap.xml' and page.url != '/feed.xml' and page.url != '/robots.txt' and page.name != 'new-post-template.md'" | sort: "url" %}
 {% assign production_url = "https://sayrolivares.github.io" %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% assign static_pages = site.html_pages | sort: "url" %}
     {% for page in static_pages %}
     <url>
         <loc>{{ production_url }}{{ page.url | replace: '/index.html', '/' }}</loc>
