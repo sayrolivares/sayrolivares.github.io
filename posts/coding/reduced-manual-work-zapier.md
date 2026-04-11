@@ -50,6 +50,10 @@ Every path that sent an SMS had two downstream branches: success and error. Both
 
 All of them included a path to an e-mail marketing software called Mailchimp to include promotional stuff every now and then which was also automated (similar to Zapier).
 
+## The 95% reduction part
+
+We had more than 1500 leads in the system, we could've reviewed them all one by one, but it was too much work, therefore the automation. Reviewing one by one could've taken a lot of hours, but with this automation in place we focused on the ones that actually mattered and followed up accordingly. I think it was more than 95% of the work, to be fair. The rest was just supervision and maintenance.
+
 ## Best practices to avoid confusion later
 
 Name paths clearly from the start. Test with real messy data, not clean test inputs. And resist the urge to add unrelated processes to the same Zap just because they share a trigger, that's how maintainable workflows become unmaintainable ones.
