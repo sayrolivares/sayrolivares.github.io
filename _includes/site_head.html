@@ -1,4 +1,5 @@
 {% assign production_url = "https://sayrolivares.github.io" %}
+{% assign site_name = site.site_name | default: site.title %}
 {% assign page_title = page.seo_title | default: page.title | default: site.title %}
 {% assign page_description = page.og_description | default: page.description | default: site.description %}
 {% assign page_type = page.og_type | default: "website" %}
@@ -17,12 +18,14 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="description" content="{{ page_description }}">
 <meta name="author" content="{{ site.author.name }}">
+<meta name="application-name" content="{{ site_name }}">
+<meta name="apple-mobile-web-app-title" content="{{ site_name }}">
 <link rel="canonical" href="{{ canonical_url }}">
 <meta property="og:title" content="{{ page_title }}">
 <meta property="og:locale" content="{{ site.lang | default: 'en' }}">
 <meta property="og:description" content="{{ page_description }}">
 <meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:site_name" content="{{ site_name }}">
 <meta property="og:image" content="{{ absolute_image }}">
 <meta property="og:type" content="{{ page_type }}">
 <meta name="twitter:card" content="{{ site.twitter.card | default: 'summary_large_image' }}">
@@ -85,7 +88,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": {{ site.title | jsonify }},
+  "name": {{ site_name | jsonify }},
   "description": {{ page_description | jsonify }},
   "url": {{ canonical_url | jsonify }},
   "image": {{ absolute_image | jsonify }},
