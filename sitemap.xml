@@ -6,7 +6,7 @@ permalink: /sitemap.xml
 {% assign post_pages = site.pages | where: "layout", "post" | sort: "date" | reverse %}
 {% assign production_url = "https://sayrolivares.github.io" %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% assign static_pages = site.html_pages | sort: "url" %}
+    {% assign static_pages = site.html_pages | where_exp: "page", "page.layout != 'post'" | sort: "url" %}
     {% for page in static_pages %}
     <url>
         <loc>{{ production_url }}{{ page.url | replace: '/index.html', '/' }}</loc>
